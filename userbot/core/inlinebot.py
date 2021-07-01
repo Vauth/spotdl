@@ -53,8 +53,8 @@ def ibuild_keyboard(buttons):
 
 
 def main_menu():
-    text = f"𝗖𝗮𝘁𝗨𝘀𝗲𝗿𝗯𝗼𝘁 𝗛𝗲𝗹𝗽𝗲𝗿\
-        \n𝗣𝗿𝗼𝘃𝗶𝗱𝗲𝗱 𝗯𝘆 {mention}"
+    text = f"𝗗𝗮𝘇𝗮𝗶 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 𝗛𝗲𝗹𝗽𝗲𝗿 𝗠𝗲𝗻𝘂\
+        "
     buttons = [
         (
             Button.inline(
@@ -375,8 +375,8 @@ async def inline_handler(event):  # sourcery no-metrics
         elif string == "help":
             _result = main_menu()
             result = builder.article(
-                title="© CatUserbot Help",
-                description="Help menu for CatUserbot",
+                title="Helper ",
+                description="Help menu for Dazai Userbot",
                 text=_result[0],
                 buttons=_result[1],
                 link_preview=False,
@@ -509,37 +509,6 @@ async def inline_handler(event):  # sourcery no-metrics
                     buttons=buttons,
                 )
             await event.answer([result] if result else None)
-    else:
-        buttons = [
-            (
-                Button.url("Source code", "https://github.com/Jisan09/catuserbot"),
-                Button.url(
-                    "Deploy",
-                    "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack&template=https%3A%2F%2Fgithub.com%2FMr-confused%2Fcatpack",
-                ),
-            )
-        ]
-        markup = event.client.build_reply_markup(buttons)
-        photo = types.InputWebDocument(
-            url=CATLOGO, size=0, mime_type="image/jpeg", attributes=[]
-        )
-        text, msg_entities = await event.client._parse_message_text(
-            "𝗗𝗲𝗽𝗹𝗼𝘆 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝗖𝗮𝘁𝗨𝘀𝗲𝗿𝗯𝗼𝘁.", "md"
-        )
-        result = types.InputBotInlineResult(
-            id=str(uuid4()),
-            type="photo",
-            title="𝘾𝙖𝙩𝙐𝙨𝙚𝙧𝙗𝙤𝙩",
-            description="Deploy yourself",
-            url="https://github.com/Jisan09/catuserbot",
-            thumb=photo,
-            content=photo,
-            send_message=types.InputBotInlineMessageMediaAuto(
-                reply_markup=markup, message=text, entities=msg_entities
-            ),
-        )
-        await event.answer([result] if result else None)
-
 
 @catub.tgbot.on(CallbackQuery(data=re.compile(b"close")))
 @check_owner
