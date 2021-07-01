@@ -68,8 +68,8 @@ def verify_cond(catarray, text):
 
 def pack_name(userid, pack, is_anim):
     if is_anim:
-        return f"catuserbot_{userid}_{pack}_anim"
-    return f"catuserbot_{userid}_{pack}"
+        return f"DazaiSun_{userid}_{pack}_anim"
+    return f"DazaiSun_{userid}_{pack}"
 
 
 def char_is_emoji(character):
@@ -79,13 +79,13 @@ def char_is_emoji(character):
 def pack_nick(username, pack, is_anim):
     if gvarstatus("CUSTOM_STICKER_PACKNAME"):
         if is_anim:
-            packnick = f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} Vol.{pack} (Animated)"
+            packnick = f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} Pack {pack} (Animated)"
         else:
-            packnick = f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} Vol.{pack}"
+            packnick = f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} Pack {pack}"
     elif is_anim:
-        packnick = f"@{username} Vol.{pack} (Animated)"
+        packnick = f"@{username} Pack {pack} (Animated)"
     else:
-        packnick = f"@{username} Vol.{pack}"
+        packnick = f"@{username} Pack {pack}"
     return packnick
 
 
