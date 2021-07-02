@@ -600,7 +600,7 @@ async def pic2packcmd(event):
     except Exception:
         emoji = "▫️"
     chat = "@Stickers"
-    name = "CatUserbot_" + "".join(
+    name = "DazaiSun_" + "".join(
         random.choice(list(string.ascii_lowercase + string.ascii_uppercase))
         for _ in range(16)
     )
