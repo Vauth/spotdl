@@ -2,7 +2,7 @@ import asyncio
 from datetime import datetime
 
 from ..core.managers import edit_or_reply
-from . import catub, hmention
+from . import catub, hmention, mention
 
 plugin_category = "tools"
 
@@ -31,7 +31,7 @@ async def _(event):
         end = datetime.now()
         ms = (end - start).microseconds / 1000
         await catevent.edit(
-            f"┏━━━━━━━┓\n┃ ⁭⁫⌘ {ms} \n┗━━━━━━━┛",
+            f"┏━━━━━━━┓\n┃ ⁭⁫⌘ {ms} \n┃ ⁭⁫⌘ <b>{hmention}</b>\n┗━━━━━━━┛",
             parse_mode="html",
         )
         
