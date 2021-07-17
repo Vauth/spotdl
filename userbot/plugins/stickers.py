@@ -79,13 +79,13 @@ def char_is_emoji(character):
 def pack_nick(username, pack, is_anim):
     if gvarstatus("CUSTOM_STICKER_PACKNAME"):
         if is_anim:
-            packnick = f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} Pack {pack} (Animated)"
+            packnick = f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} {pack} Pack (Animated)"
         else:
-            packnick = f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} Pack {pack}"
+            packnick = f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} {pack} Pack"
     elif is_anim:
-        packnick = f"@{username} Pack {pack} (Animated)"
+        packnick = f"@{username} {pack} Pack (Animated)"
     else:
-        packnick = f"@{username} Pack {pack}"
+        packnick = f"@{username} {pack} Pack"
     return packnick
 
 
@@ -298,7 +298,7 @@ async def kang(args):  # sourcery no-metrics
         return
     if photo:
         splat = ("".join(args.text.split(maxsplit=1)[1:])).split()
-        emoji = emoji if emojibypass else "😂"
+        emoji = emoji if emojibypass else "☁️"
         pack = 1
         if len(splat) == 2:
             if char_is_emoji(splat[0][0]):
@@ -483,7 +483,7 @@ async def pack_kang(event):  # sourcery no-metrics
             return
         if photo:
             splat = ("".join(event.text.split(maxsplit=1)[1:])).split()
-            emoji = emoji or "😂"
+            emoji = emoji or "☁️"
             if pack is None:
                 pack = 1
                 if len(splat) == 1:
