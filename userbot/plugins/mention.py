@@ -22,7 +22,7 @@ async def _(event):
     "To tag all."
     reply_to_id = await reply_id(event)
     input_str = event.pattern_match.group(2)
-    mentions = input_str or "@all"
+    mentions = input_str or " ⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬"
     chat = await event.get_input_chat()
     async for x in event.client.iter_participants(chat, 100):
         mentions += f"[\u2063](tg://user?id={x.id})"
