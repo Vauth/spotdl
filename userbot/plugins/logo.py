@@ -239,7 +239,7 @@ async def pussy(event):
     cmd = event.pattern_match.group(1).lower()
     input_str = event.pattern_match.group(2)
     if cmd == "":
-        source = requests.get("https://github.com/Jisan09/Files/tree/main/fonts")
+        source = requests.get("https://github.com/MarshallCares/Files/tree/main/fonts")
         soup = BeautifulSoup(source.text, features="html.parser")
         links = soup.find_all("a", class_="js-navigation-open Link--primary")
         logo_font = []
@@ -257,7 +257,7 @@ async def pussy(event):
         else:
             if " " in input_str:
                 input_str = str(input_str).replace(" ", "%20")
-            string = f"https://github.com/Jisan09/Files/blob/main/fonts/{input_str}.ttf?raw=true"
+            string = f"https://github.com/MarshallCares/Files/blob/main/fonts/{input_str}.ttf?raw=true"
             if os.path.exists("temp/logo.ttf"):
                 os.remove("temp/logo.ttf")
                 urllib.request.urlretrieve(
