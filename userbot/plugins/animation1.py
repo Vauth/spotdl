@@ -123,7 +123,7 @@ async def _(event):
     "animation command"
     animation_interval = 0.7
     animation_ttl = range(12)
-    event = await edit_or_reply(event, "ready to die dude.....")
+    event = await edit_or_reply(event, "`ready to die dude ...`")
     animation_chars = [
         "Ｆｉｉｉｉｉｒｅ",
         "(　･ิω･ิ)︻デ═一-->",
@@ -136,7 +136,7 @@ async def _(event):
         "------------------>",
         "------>;(^。^)ノ",
         "(￣ー￣) DEAD",
-        f"**{mention}**` Killed targeted user by Headshot 😈.😈.😈.😈.😈.😈.😈......`\n '#Sad_Reacts_Online'\n",
+        f"Targeted Killed By Headshot 🥂\n",
     ]
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
