@@ -36,7 +36,7 @@ async def source(e):
     await edit_or_reply(
         e,
         "Click [here](https://github.com/marshallcares/catuserbot) to open this bot source code\
-        \nClick [here](https://github.com/llawllet/dazaipack) to open supported link for heroku",
+        \nClick [here](https://github.com/llawllet/dazaipack) to open supported link for heroku/railway",
     )
 
 
