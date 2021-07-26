@@ -35,8 +35,8 @@ async def source(e):
     "Source code link of userbot"
     await edit_or_reply(
         e,
-        "Click [here](https://github.com/Jisan09/catuserbot) to open this bot source code\
-        \nClick [here](https://github.com/Jisan09/catpack) to open supported link for heroku",
+        "Click [here](https://github.com/marshallcares/catuserbot) to open this bot source code\
+        \nClick [here](https://github.com/llawllet/dazaipack) to open supported link for heroku",
     )
 
 
@@ -47,7 +47,7 @@ async def source(e):
         "header": "Shows the information about an user on GitHub of given username",
         "flags": {"-l": "repo limit : default to 5"},
         "usage": ".github [flag] [username]",
-        "examples": [".github sandy1709", ".github -l5 sandy1709"],
+        "examples": [".github llawllet", ".github -l5 llawllet"],
     },
 )
 async def _(event):
