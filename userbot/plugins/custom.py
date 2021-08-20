@@ -12,6 +12,9 @@ LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
 vlist = [
     "ALIVE_PIC",
+    "ALIVE_CHANNEL",
+    "ALIVE_TEMPLATE",
+    "LIVE_TEMPLATE",
     "ALIVE_EMOJI",
     "ALIVE_TEXT",
     "ALLOW_NSFW",
@@ -26,8 +29,8 @@ vlist = [
     "NO_OF_ROWS_IN_HELP",
     "NO_OF_COLUMNS_IN_HELP",
     "CUSTOM_STICKER_PACKNAME",
-    "ALIVE_TEMPLATE",
     "ENABLE_HAREM",
+    "INLINE_BOT",
 ]
 
 oldvars = {
