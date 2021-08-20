@@ -98,7 +98,7 @@ async def amireallyalive(event):
         await edit_or_reply(event, caption)
 
 
-temp = "{ALIVE_TEXT}\n\n\
+temp = "**{ALIVE_TEXT}**\n\n\
 ┏━━━━━━━━━━━━━━━━━━━━┓\n\
 ┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬⁭⁫{EMOJI} **Database:** `{dbhealth}`\n\
 ┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬⁭⁫{EMOJI} **Telethon Version:** `{telever}`\n\
