@@ -40,13 +40,13 @@ plugin_category = "utils"
 async def amireallyalive(event):
     "A kind of showing bot details"
     start = datetime.now()
-    await edit_or_reply(event, "`Checking...`")
+    await edit_or_reply(event, "`Checking ...`")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     reply_to_id = await reply_id(event)
     uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "〣"
+    EMOJI = gvarstatus("ALIVE_EMOJI") or "⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬ ⁭⁫⌘"
     #================================================
     api_url = f"https://animechan.vercel.app/api/random"
     try:
@@ -64,7 +64,7 @@ async def amireallyalive(event):
         ALIVE_CHANNEL = int(ALIVE_CHANNEL)
     #================================================
     ALIVE_TEXT = ANIME_QUOTE or gvarstatus("ALIVE_TEXT")
-    cat_caption = gvarstatus("ALIVE_TEMPLATE") or temp
+    cat_caption = gvarstatus("LIVE_TEMPLATE") or temp
     caption = cat_caption.format(
         ALIVE_TEXT=ALIVE_TEXT,
         EMOJI=EMOJI,
@@ -76,7 +76,7 @@ async def amireallyalive(event):
         dbhealth=check_sgnirts,
         ping=ms,
     )
-    # Auto pic by the gawd Lee @TheLoneEssence
+    # Auto pic by @TheLoneEssence
     if ALIVE_CHANNEL:
         done = False
         while done == False:
@@ -99,9 +99,13 @@ async def amireallyalive(event):
 
 
 temp = "{ALIVE_TEXT}\n\n\
-**{EMOJI} Master : {mention}**\n\
-**{EMOJI} Uptime :** `{uptime}`\n\
-**{EMOJI} Telethon version :** `{telever}`\n\
-**{EMOJI} Catuserbot Version :** `{catver}`\n\
-**{EMOJI} Python Version :** `{pyver}`\n\
-**{EMOJI} Database :** `{dbhealth}`\n"
+┏━━━━━━━━━━━━━━━━━━━━┓\n\
+┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬⁭⁫{EMOJI} **Database:** `{dbhealth}`\n\
+┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬⁭⁫{EMOJI} **Telethon Version:** `{telever}`\n\
+┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬⁭{EMOJI} **Userbot Version:** `{catver}`\n\
+┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬⁭⁫{EMOJI} **Python Version:** `{pyver}`\n\
+┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬⁭⁫{EMOJI} **Uptime:** `{uptime}`\n\
+┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬⁭⁫{EMOJI} **Ping:** `{ping}` ms\n\
+┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬⁭⁫{EMOJI} **Master:** {mention}\n\
+┗━━━━━━━━━━━━━━━━━━━━┛\n"
+
