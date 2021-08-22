@@ -74,3 +74,4 @@ youtube-search-python
 youtube_dl
 hentai
 natsort
+instaloader
