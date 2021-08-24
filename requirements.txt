@@ -75,3 +75,4 @@ youtube_dl
 hentai
 natsort
 instaloader
+pokedex.py
