@@ -57,7 +57,7 @@ async def ocr(event):
     reply = await event.get_reply_message()
     if not event.reply_to_msg_id or not reply.media:
         return await edit_delete(event, "__Reply to a media to read text on it__")
-    catevent = await edit_or_reply(event, "`Reading...`")
+    catevent = await edit_or_reply(event, "`Reading ...`")
     if not os.path.isdir(Config.TEMP_DIR):
         os.makedirs(Config.TEMP_DIR)
     cmd = event.pattern_match.group(1)
@@ -88,9 +88,9 @@ async def ocr(event):
                 )
             source_lan = LANGUAGES[f"{reply_text.src.lower()}"]
             transl_lan = LANGUAGES[f"{reply_text.dest.lower()}"]
-            tran_text = f"📜**Translate :-\nFrom {source_lan.title()}({reply_text.src.lower()}) to {transl_lan.title()}({reply_text.dest.lower()}) :**\n\n`{reply_text.text}`"
+            tran_text = f"**Translate:**\nFrom {source_lan.title()}({reply_text.src.lower()}) to {transl_lan.title()}({reply_text.dest.lower()}) :\n\n`{reply_text.text}`"
             await catevent.edit(
-                f"🧧**Here's what I could read from it:**\n\n`{ParsedText}`\n\n{tran_text}"
+                f"**Here's what I could read from it:**\n\n`{ParsedText}`\n\n{tran_text}"
             )
     os.remove(output_file)
 
