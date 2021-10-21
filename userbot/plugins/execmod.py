@@ -1,5 +1,5 @@
 from userbot import catub
-
+import os
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.utils import _catutils, parse_pre, yaml_format
 
@@ -34,7 +34,7 @@ async def _(event):
     "To list all plugins in userbot"
     cmd = "ls userbot/plugins"
     o = (await _catutils.runcmd(cmd))[0]
-    OUTPUT = f"**[Cat's](tg://need_update_for_some_feature/) PLUGINS:**\n{o}"
+    OUTPUT = f"**[Dazai's](tg://need_update_for_some_feature/) PLUGINS:**\n{o}"
     await edit_or_reply(event, OUTPUT)
 
 
@@ -52,7 +52,7 @@ async def _(event):
     cmd = "env"
     o = (await _catutils.runcmd(cmd))[0]
     OUTPUT = (
-        f"**[Cat's](tg://need_update_for_some_feature/) Environment Module:**\n\n\n{o}"
+        f"**[Dazai's](tg://need_update_for_some_feature/) Environment Module:**\n\n\n{o}"
     )
     await edit_or_reply(event, OUTPUT)
 
@@ -96,3 +96,21 @@ async def _(event):
     await edit_or_reply(
         event, f"**This message was posted on :** `{yaml_format(result)}`"
     )
+
+@catub.cat_cmd(
+    pattern="tp$",
+    command=("tp", plugin_category),
+    info={
+        "header": "Shows total plugins",
+        "usage": [
+            "{tr}tp",
+        ],
+    },
+)
+async def wave(odi):
+    "Total Plugins"
+    plug = 0
+    directory = os.listdir("userbot/plugins")
+    for file in directory:
+           plug+=1
+    await odi.edit(f"**Total Plugins:** `{plug}`")
