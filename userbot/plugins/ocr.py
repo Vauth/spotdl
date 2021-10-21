@@ -1,8 +1,6 @@
 import os
-
 import requests
 from googletrans import LANGUAGES
-
 from ..Config import Config
 from ..core.managers import edit_or_reply
 from ..helpers.functions import getTranslate
@@ -10,7 +8,6 @@ from ..sql_helper.globals import gvarstatus
 from . import _cattools, catub, convert_toimage, deEmojify
 
 plugin_category = "utils"
-
 
 async def ocr_space_file(
     filename, overlay=False, api_key=Config.OCR_SPACE_API_KEY, language="eng"
