@@ -39,14 +39,14 @@ lst.append([Button.inline("=", data="calc=")])
     pattern="icalc(?:\s|$)([\s\S]*)",
     command=("icalc", plugin_category),
     info={
-        "header": "Inline Calculator.",
+        "header": "Inline Calculator",
         "usage": "{tr}icalc",
-        "description": "An awesome inline calculator with cool buttons.",
+        "description": "Awesome inline calculator with buttons.",
     },
 )
 async def icalc(e):
     if e.client._bot:
-        return await e.reply("𝐂𝐚𝐭 𝐂𝐚𝐥𝐜𝐮𝐥𝐚𝐭𝐨𝐫", buttons=lst)
+        return await e.reply("𝗗𝗮𝘇𝗮𝗶 𝗖𝗮𝗹𝗰𝘂𝗹𝗮𝘁𝗼𝗿", buttons=lst)
     results = await e.client.inline_query(Config.TG_BOT_USERNAME, "calc")
     await results[0].click(e.chat_id, silent=True, hide_via=True)
     await e.delete()
@@ -62,7 +62,7 @@ async def inlinecalc(event):
     ) and string == "calc":
         event.builder
         calc = event.builder.article(
-            "Calc", text="**INLINE CAT CALCULATOR**", buttons=lst
+            "Calc", text="𝗗𝗮𝘇𝗮𝗶 𝗜𝗻𝗹𝗶𝗻𝗲 𝗖𝗮𝗹𝗰𝘂𝗹𝗮𝘁𝗼𝗿", buttons=lst
         )
         await event.answer([calc])
 
@@ -77,13 +77,13 @@ async def _(e):  # sourcery no-metrics
         if CALC.get(user):
             CALC.pop(user)
         await e.edit(
-            "𝐂𝐚𝐭 𝐂𝐚𝐥𝐜𝐮𝐥𝐚𝐭𝐨𝐫",
+            "𝗗𝗮𝘇𝗮𝗶 𝗖𝗮𝗹𝗰𝘂𝗹𝗮𝘁𝗼𝗿",
             buttons=[Button.inline("Open Again", data="recalc")],
         )
     elif x == "C":
         if CALC.get(user):
             CALC.pop(user)
-        await e.answer("cleared")
+        await e.answer("Cleared")
     elif x == "⌫":
         if CALC.get(user):
             get = CALC[user]
@@ -117,7 +117,7 @@ async def _(e):  # sourcery no-metrics
             out = eval(get)
             try:
                 num = float(out)
-                await e.answer(f"Answer : {num}", cache_time=0, alert=True)
+                await e.answer(f"Answer: {num}", cache_time=0, alert=True)
             except BaseException:
                 CALC.pop(user)
                 await e.answer("Error", cache_time=0, alert=True)
@@ -160,4 +160,4 @@ async def _(e):
     tultd = [Button.inline(f"{x}", data=f"calc{x}") for x in m]
     lst = list(zip(tultd[::4], tultd[1::4], tultd[2::4], tultd[3::4]))
     lst.append([Button.inline("=", data="calc=")])
-    await e.edit("𝐂𝐚𝐭 𝐂𝐚𝐥𝐜𝐮𝐥𝐚𝐭𝐨𝐫", buttons=lst)
+    await e.edit("𝗗𝗮𝘇𝗮𝗶 𝗖𝗮𝗹𝗰𝘂𝗹𝗮𝘁𝗼𝗿", buttons=lst)
