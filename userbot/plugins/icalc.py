@@ -160,4 +160,4 @@ async def _(e):
     tultd = [Button.inline(f"{x}", data=f"calc{x}") for x in m]
     lst = list(zip(tultd[::4], tultd[1::4], tultd[2::4], tultd[3::4]))
     lst.append([Button.inline("=", data="calc=")])
-    await e.edit("𝗗𝗮𝘇𝗮𝗶 𝗖𝗮𝗹𝗰𝘂𝗹𝗮𝘁𝗼𝗿", buttons=lst)
+    await e.edit("𝗗𝗮𝘇𝗮𝗶 𝗜𝗻𝗹𝗶𝗻𝗲 𝗖𝗮𝗹𝗰𝘂𝗹𝗮𝘁𝗼𝗿", buttons=lst)
