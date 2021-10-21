@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="/docs/static/logo-transparent.png" alt="spotDL" width="200" />
+<img src="https://github.com/marshallcares/spotify-downloader/raw/master/docs/static/logo-transparent.png" alt="spotDL" width="200" />
 
 # spotDL
 
