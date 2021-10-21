@@ -1,72 +1,283 @@
-# CatUserbot
-A simple Telegram userbot based on Telethon .
-[![catuserbot logo](https://telegra.ph/file/b7dc845e3a48cde0d7bb1.jpg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fsandy1709%2Fcatuserbot%2Ftree%2Fbugs&template=https%3A%2F%2Fgithub.com%2Fsandy1709%2Fcatuserbot)
-![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FJisan09%2Fcatuserbot)
-[![CodeFactor](https://www.codefactor.io/repository/github/Jisan09/catuserbot/badge?&style=flat-square)](https://www.codefactor.io/repository/github/Jisan09/catuserbot)
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?&style=flat-square)](https://GitHub.com/Jisan09/catuserbot/graphs/commit-activity) 
-![Repo Size](https://img.shields.io/github/repo-size/Jisan09/catuserbot?&style=flat-square&logo=github)
-[![GitHub license](https://img.shields.io/github/license/Jisan09/catuserbot?&style=flat-square&logo=github)](https://github.com/Jisan09/catuserbot/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/Jisan09/catuserbot?&style=flat-square&logo=github)](https://github.com/Jisan09/catuserbot/issues)
-[![PR Open](https://img.shields.io/github/issues-pr/Jisan09/catuserbot?&style=flat-square&logo=github)](https://github.com/Jisan09/catuserbot/pulls)
-[![PR Closed](https://img.shields.io/github/issues-pr-closed/Jisan09/catuserbot?&style=flat-square&logo=github)](https://github.com/Jisan09/catuserbot/pulls?q=is:closed)
-[![GitHub contributors](https://img.shields.io/github/contributors/sandy1709/catuserbot?&style=flat-square&logo=github)](https://GitHub.com/sandy1709/catuserbot/graphs/contributors/)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Jisan09/catuserbot?&style=flat-square&logo=github)](https://github.com/Jisan09/catuserbot/graphs/commit-activity)
-[![GitHub forks](https://img.shields.io/github/forks/Jisan09/catuserbot?&style=flat-square&logo=github)](https://github.com/Jisan09/catuserbot/fork)
-[![GitHub stars](https://img.shields.io/github/stars/Jisan09/catuserbot?&style=flat-square&logo=github)](https://github.com/Jisan09/catuserbot/stargazers)
+<!--- mdformat-toc start --slug=github --->
 
+<div align="center">
 
+<img src="/docs/static/logo-transparent.png" alt="spotDL" width="200" />
 
-A simple Telegram userbot based on Telethon .
+# spotDL
 
-## How to deploy catuserbot
-### Self host
+Download your Spotify playlists and songs along with album art and metadata
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2FJisan09%2Fcatpack)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?style=flat-square&color=44CC11)](https://github.com/spotDL/spotify-downloader/blob/master/LICENSE)
+[![pypi version](https://img.shields.io/pypi/pyversions/spotDL?color=%2344CC11&style=flat-square)](https://pypi.org/project/spotdl/)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/spotDL/spotify-downloader/latest?color=44CC11&style=flat-square)
+[![pypi downloads](https://img.shields.io/pypi/dw/spotDL?label=downloads@pypi&color=344CC11&style=flat-square)](https://pypi.org/project/spotdl/)
+![Contributors](https://img.shields.io/github/contributors/spotDL/spotify-downloader?style=flat-square)
+[![Discord](https://img.shields.io/discord/771628785447337985?label=discord&logo=discord&style=flat-square)](https://discord.gg/xCa23pwJWY)
 
-  <details>
-    <summary>Steps to deploy on Heroku !! </summary>
+</div>
 
-  #### Get Required values First 
+> The fastest, easiest, and most accurate command-line music downloader
 
-  1) Get App Id and Api Hash from [HERE](https://my.telegram.org) 
-  2) Create a bot in [Bot Father](https://t.me/botfather) and get Bot Token
-  3) Then Generate stringsession from [Repl](https://generatestringsession.sandeep1709.repl.run/).
+[![asciicast](https://asciinema.org/a/wDNFL5XGhdadUK2EnOkv46YMG.svg)](https://asciinema.org/a/wDNFL5XGhdadUK2EnOkv46YMG)
 
+## What spotDL does
 
-  </details>
-  
-## Support
-   <a href="https://t.me/catuserbot17"><img src="https://img.shields.io/badge/Channel%20Support%3F-yes-green?&style=flat-square?&logo=telegram" width=220px></a></p>
-   <a href="https://t.me/catuserbot_support"><img src="https://img.shields.io/badge/Group%20Support%3F-yes-green?&style=flat-square?&logo=telegram" width=220px></a></p>
-   
-## Inspiration
-   - [X-tra-Telegram](https://github.com/Dark-Princ3/X-tra-Telegram)
-   - [Uniborg](https://github.com/SpEcHiDe/UniBorg) & [Uniborg fork](https://github.com/ravana69/PornHub)
-   - [Nana-Remix](https://github.com/pokurt/Nana-Remix)
-   - [Userge-X](https://github.com/code-rgb/USERGE-X/)
-   
-## Disclaimer
+1. Downloads music from YouTube as an MP3 file
+2. Applies basic metadata gathered from Spotify such as:
+    - Track Name
+    - Track Number
+    - Album
+    - Album Cover
+    - Genre
+    - and more!
 
+### Redesigned
+
+spotDL is being redesigned! This means we are currently not accepting new feature requests. You can talk to us on [our Discord](https://discord.gg/xCa23pwJWY) if there is anything further.
+
+## Prerequisites
+
+-   Python 3.6.1 or above (added to PATH)
+-   FFmpeg 4.2 or above (added to PATH)
+
+> **_YouTube Music must be available in your country for spotDL to work. This is because we use YouTube Music to filter search results. You can check if YouTube Music is available in your country, by visiting [YouTube Music](https://music.youtube.com)._**
+
+## Installation
+
+### Installing FFmpeg
+
+-   [Windows Tutorial](https://windowsloop.com/install-ffmpeg-windows-10/)
+-   OSX - `brew install ffmpeg`
+-   Linux - `sudo apt install ffmpeg`
+
+### Installing spotDL
+
+-   Recommended Stable Version:
+
+    ```bash
+    pip install spotdl
+    ```
+
+-   Dev Version: **(NOT STABLE)**
+
+    ```bash
+    pip install https://codeload.github.com/spotDL/spotify-downloader/zip/dev
+    ```
+
+If you have trouble installing spotdl take a look at the extended installation guide
+[here](/docs/INSTALLATION.md) or ask for help in our
+[discord server](https://discord.gg/xCa23pwJWY)
+
+#### On Termux
+
+```bash
+curl -L https://raw.githubusercontent.com/spotDL/spotify-downloader/master/termux/setup_spotdl.sh | sh
 ```
-              YOU ARE FOREWARNED
-Your Telegram account may get banned.   
-Catuserbot or we are not responsible for your account, 
-This bot is intended for the purpose of having fun with some fun commands 
-and group management with some helpfull commands.
 
-If  you ended up spamming groups, getting reported left and right, 
-and you ended up in being fight with Telegram 
-and at the end Telegram Team deleted your account. DON'T BLAME US.
+#### Arch
 
-No personal support will be provided / We won't spoon feed you. 
-If you need help ask in our support group 
-and we or our friends will try to help you.
+There is an Arch User Repository (AUR) package for [spotDL](https://aur.archlinux.org/packages/python-spotdl/).
 
-Thanks for using our bot 😺
+## Usage
+
+-   #### To download a song, run
+
+    ```bash
+    spotdl [trackUrl]
+    ```
+
+    example:
+
+    ```bash
+    spotdl https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b
+    ```
+
+-   #### To download an album, run
+
+    ```bash
+    spotdl [albumUrl]
+    ```
+
+    example:
+
+    ```bash
+    spotdl https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj
+    ```
+
+-   #### To download a playlist, run
+
+    ```bash
+    spotdl [playlistUrl]
+    ```
+
+    example:
+
+    ```bash
+    spotdl https://open.spotify.com/playlist/37i9dQZF1E8UXBoz02kGID
+    ```
+
+-   #### To download all songs from an artist run
+
+    ```bash
+    spotdl [artistUrl]
+    ```
+
+    example:
+
+    ```bash
+    spotdl https://open.spotify.com/artist/1fZAAHNWdSM5gqbi9o5iEA
+    ```
+
+-   #### To search for and download a song, run, **with quotation marks**
+
+    ```bash
+    spotdl '[songQuery]'
+    ```
+
+    example:
+
+    ```bash
+    spotdl 'The Weeknd - Blinding Lights'
+    ```
+
+    > _Note: This is not accurate and often causes errors._
+
+-   #### To resume a failed/incomplete download, run
+
+    ```bash
+    spotdl [pathToTrackingFile]
+    ```
+
+    example:
+
+    ```bash
+    spotdl 'The Weeknd - Blinding Lights.spotdlTrackingFile'
+    ```
+
+    > _Note: `.spotdlTrackingFile`s are automatically created when a download starts and deleted on completion_
+
+-   #### You can queue up multiple download tasks by separating the arguments with spaces
+
+    ```bash
+    spotdl [songQuery1] [albumUrl] [songQuery2] ... (order does not matter)
+    ```
+
+    example:
+
+    ```bash
+    spotdl 'The Weeknd - Blinding Lights' https://open.spotify.com/playlist/37i9dQZF1E8UXBoz02kGID ...
+    ```
+
+    > _Note: spotDL downloads up to 4 songs in parallel, so for a faster experience, download albums and playlist, rather than tracks._
+
+-   #### To download youtube video with metadata from spotify run:
+
+    ```bash
+    spotdl "YouTubeURL|SpotifyURL"
+    ```
+
+    example:
+
+    ```bash
+    spotdl "https://www.youtube.com/watch?v=EO7XnC1YpVo|https://open.spotify.com/track/4fzsfWzRhPawzqhX8Qt9F3"
+    ```
+
+    > Note: Urls have to be separated with `|` and quoted properly ex. "YouTubeURL|SpotifyUrl"
+
+-   #### To download songs with different output format run
+
+    ```bash
+    spotdl [songUrl] --output-format mp3/m4a/flac/opus/ogg/wav
+    ```
+
+    example:
+
+    ```bash
+    spotdl [songUrl] --output-format opus
+    ```
+
+-   #### To use ffmpeg binary that is not on PATH run
+
+    ```bash
+    spotdl [songUrl] --ffmpeg path/to/your/ffmpeg.exe
+    ```
+
+    example:
+
+    ```bash
+    spotdl [songUrl] --ffmpeg C:\ffmpeg\bin\ffmpeg.exe
+    ```
+
+-   #### To generate .m3u file for each playlist run
+
+    ```bash
+    spotdl [playlistUrl] --m3u
+    ```
+
+    example:
+
+    ```bash
+      spotdl https://open.spotify.com/playlist/37i9dQZF1E8UXBoz02kGID --m3u
+    ```
+
+-   #### To use youtube instead of youtube music run
+
+    ```bash
+    spotdl [songUrl] --use-youtube
+    ```
+
+    example:
+
+    ```bash
+      spotdl https://open.spotify.com/track/4fzsfWzRhPawzqhX8Qt9F3 --use-youtube
+    ```
+
+-   #### To change number of threads used when downloading songs run
+
+    ```bash
+    spotdl [songUrl] --dt [number]
+    ```
+
+    example:
+
+    ```bash
+    spotdl https://open.spotify.com/track/4fzsfWzRhPawzqhX8Qt9F3 --dt 8
+    ```
+
+-   #### To change number of threads used when searching for songs run
+
+    ```bash
+    spotdl [songUrl] --st [number]
+    ```
+
+    example:
+
+    ```bash
+    spotdl https://open.spotify.com/track/4fzsfWzRhPawzqhX8Qt9F3 --st 8
+    ```
+
+-   #### To ignore your ffmpeg version run
+
+    ```bash
+    spotdl [songUrl] --ignore-ffmpeg-version
+    ```
+
+## `pipx` Isolated Environment Alternative
+
+For users who are not familiar with `pipx`, it can be used to run scripts **without**
+installing the spotDL package and all the dependencies globally with pip. (Effectively
+skipping over the [spotDL Installation](#Installing-spotDL) step)
+
+First, you will need to install `pipx` by running:
+
+```bash
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
 ```
 
-## Credits
-   - Special thanks to [LonamiWebs](https://github.com/LonamiWebs/Telethon/) for Telethon libraray
-   - To all devs of these [Userbots](https://github.com/sandy1709/catuserbot/tree/bugs#inspiration)
-   - Finally to all [contributors of Catuserbot](https://github.com/sandy1709/catuserbot/graphs/contributors)
+Next, you can jump directly to running spotDL with:
+
+```bash
+pipx run spotdl ...
+```
