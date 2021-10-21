@@ -76,3 +76,4 @@ hentai
 natsort
 instaloader
 pokedex.py
+spotdl
