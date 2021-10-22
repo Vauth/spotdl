@@ -81,7 +81,7 @@ async def startupmessage():
         if msg_details:
             await catub.check_testcases()
             message = await catub.get_messages(msg_details[0], ids=msg_details[1])
-            text = message.text + "\n\n[**Ok Bot is Back and Alive.**](https://telegra.ph/file/eac132640e095b7fd6106.mp4)"
+            text = message.text + "\n\n**[Ok Bot is Back and Alive.](https://telegra.ph/file/eac132640e095b7fd6106.mp4)**"
             await catub.edit_message(msg_details[0], msg_details[1], text)
             if gvarstatus("restartupdate") is not None:
                 await catub.send_message(
