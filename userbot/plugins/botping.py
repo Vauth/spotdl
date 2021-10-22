@@ -12,5 +12,5 @@ async def ping(event):
     catevent = await event.reply("__✮ Pong!__")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    await catevent.edit(f"🏓 **Pong!**\n`{ms}` ms")
+    await catevent.edit(f"**Pong!**\n`{ms}` ms")
 	
