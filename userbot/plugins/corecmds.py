@@ -44,13 +44,13 @@ async def install(event):
                 load_module(shortname.replace(".py", ""))
                 await edit_delete(
                     event,
-                    f"Installed Plugin `{os.path.basename(downloaded_file_name)}`",
+                    f"`Installed Plugin {os.path.basename(downloaded_file_name)}`",
                     10,
                 )
             else:
                 os.remove(downloaded_file_name)
                 await edit_delete(
-                    event, "Errors! This plugin is already installed/pre-installed.", 10
+                    event, "`Errors! This plugin is already installed/pre-installed`", 10
                 )
         except Exception as e:
             await edit_delete(event, f"**Error:**\n`{str(e)}`", 10)
