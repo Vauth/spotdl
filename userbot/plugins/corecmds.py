@@ -11,7 +11,7 @@ from . import (
     catub,
     edit_delete,
     edit_or_reply,
-    hmention,
+    mention,
     reply_id,
 )
 
@@ -44,7 +44,7 @@ async def install(event):
                 load_module(shortname.replace(".py", ""))
                 await edit_delete(
                     event,
-                    f"`Installed Plugin {os.path.basename(downloaded_file_name)}`",
+                    f"`Installed plugin {os.path.basename(downloaded_file_name)}`",
                     10,
                 )
             else:
@@ -115,7 +115,7 @@ async def send(event):
         ms = (end - start).seconds
         await event.delete()
         await caat.edit(
-            f"<b><i>➥ Plugin Name :- {input_str} .</i></b>\n<b><i>➥ Uploaded in {ms} seconds.</i></b>\n<b><i>➥ Uploaded by :- {hmention}</i></b>",
+            f"𝘗𝘭𝘶𝘨𝘪𝘯 𝘯𝘢𝘮𝘦: `{input_str}`\n𝘜𝘱𝘭𝘰𝘢𝘥𝘦𝘥 𝘪𝘯 `{ms}` 𝘴𝘦𝘤𝘰𝘯𝘥𝘴\n𝘜𝘱𝘭𝘰𝘢𝘥𝘦𝘥 𝘣𝘺: {mention}",
             parse_mode="html",
         )
     else:
