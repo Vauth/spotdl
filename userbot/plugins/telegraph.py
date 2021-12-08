@@ -82,7 +82,7 @@ async def _(event):
             ms = (end - start).seconds
             os.remove(downloaded_file_name)
             await catevent.edit(
-                f"[Telegraph](https://telegra.ph{media_urls[0]})",
+                f"Uploaded to [telegraph](https://telegra.ph{media_urls[0]})",
                 link_preview=True,
             )
     elif input_str in ["text", "t"]:
@@ -118,6 +118,6 @@ async def _(event):
         ms = (end - start).seconds
         cat = f"https://telegra.ph/{response['path']}"
         await catevent.edit(
-            f"[Telegraph]({cat})",
+            f"Uploaded to [telegraph]({cat})",
             link_preview=True,
         )
