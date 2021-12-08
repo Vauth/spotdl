@@ -50,11 +50,11 @@ def resize_image(image):
 )  # sourcery no-metrics
 async def _(event):
     "To get telegraph link."
-    catevent = await edit_or_reply(event, "`Pʀᴏᴄᴇssɪɴɢ ...`")
+    catevent = await edit_or_reply(event, "`Processing ...`")
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,
-            f"Created New Telegraph account {auth_url} for the current session. \n**Do not give this url to anyone, even if they say they are from Telegram!**",
+            f"Created New [Telegraph account]({auth_url}) for the current session",
         )
     optional_title = event.pattern_match.group(5)
     if not event.reply_to_msg_id:
@@ -82,7 +82,7 @@ async def _(event):
             ms = (end - start).seconds
             os.remove(downloaded_file_name)
             await catevent.edit(
-                f"Uᴘʟᴏᴀᴅᴇᴅ ᴛᴏ [Tᴇʟᴇɢʀᴀᴘʜ](https://telegra.ph{media_urls[0]}) Sᴜᴄᴄᴇssғᴜʟʟʏ",
+                f"[Telegraph](https://telegra.ph{media_urls[0]})",
                 link_preview=True,
             )
     elif input_str in ["text", "t"]:
@@ -118,6 +118,6 @@ async def _(event):
         ms = (end - start).seconds
         cat = f"https://telegra.ph/{response['path']}"
         await catevent.edit(
-            f"Uᴘʟᴏᴀᴅᴇᴅ ᴛᴏ [Tᴇʟᴇɢʀᴀᴘʜ]({cat}) Sᴜᴄᴄᴇssғᴜʟʟʏ",
+            f"[Telegraph]({cat})",
             link_preview=True,
         )
