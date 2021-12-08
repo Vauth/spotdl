@@ -115,9 +115,7 @@ async def send(event):
         ms = (end - start).seconds
         await event.delete()
         await caat.edit(
-            f"𝘗𝘭𝘶𝘨𝘪𝘯 𝘯𝘢𝘮𝘦: `{input_str}`\n𝘜𝘱𝘭𝘰𝘢𝘥𝘦𝘥 𝘪𝘯 `{ms}` 𝘴𝘦𝘤𝘰𝘯𝘥𝘴\n𝘜𝘱𝘭𝘰𝘢𝘥𝘦𝘥 𝘣𝘺: {mention}",
-            parse_mode="html",
-        )
+            f"𝘗𝘭𝘶𝘨𝘪𝘯 𝘯𝘢𝘮𝘦: `{input_str}`\n𝘜𝘱𝘭𝘰𝘢𝘥𝘦𝘥 𝘪𝘯 `{ms}` 𝘴𝘦𝘤𝘰𝘯𝘥𝘴\n𝘜𝘱𝘭𝘰𝘢𝘥𝘦𝘥 𝘣𝘺: {mention}")
     else:
         await edit_or_reply(event, "404: File Not Found")
 
