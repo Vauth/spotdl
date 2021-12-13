@@ -251,15 +251,14 @@ async def inline_handler(event):  # sourcery no-metrics
     if query_user_id == Config.OWNER_ID or query_user_id in Config.SUDO_USERS:
         hmm = re.compile("secret (.*) (.*)")
         match = re.findall(hmm, query)
-        if query.startswith("**Catuserbot"):
+        if query.startswith("**Userbot"):
             buttons = [
                 (
-                    Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/Jisan09/catuserbot"),
+                    Button.url("Owner", "https://t.me/feelded"),
                 )
             ]
-            ALIVE_PIC = gvarstatus("ALIVE_PIC")
-            IALIVE_PIC = gvarstatus("IALIVE_PIC")
+            ALIVE_PIC = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/8b6594a0286e4e473df88.jpg"
+            IALIVE_PIC = gvarstatus("IALIVE_PIC") or "https://telegra.ph/file/8b6594a0286e4e473df88.jpg"
             if IALIVE_PIC:
                 CAT = [x for x in IALIVE_PIC.split()]
                 PIC = list(CAT)
