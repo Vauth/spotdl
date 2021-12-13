@@ -80,7 +80,7 @@ async def load(event):
     except Exception as e:
         await edit_or_reply(
             event,
-            f"Could not load {shortname} because of the following error.\n{str(e)}",
+            f"Could not load {shortname} because of the following error.\n`{str(e)}`",
         )
 
 
@@ -135,9 +135,9 @@ async def unload(event):
     shortname = event.pattern_match.group(1)
     try:
         remove_plugin(shortname)
-        await edit_or_reply(event, f"Unloaded {shortname} successfully")
+        await edit_or_reply(event, f"`Unloaded {shortname} successfully`")
     except Exception as e:
-        await edit_or_reply(event, f"Successfully unload {shortname}\n{str(e)}")
+        await edit_or_reply(event, f"`Successfully unload {shortname}\n{str(e)}`")
 
 
 @catub.cat_cmd(
@@ -157,7 +157,7 @@ async def unload(event):
     path = Path(f"userbot/plugins/{shortname}.py")
     if not os.path.exists(path):
         return await edit_delete(
-            event, f"There is no plugin with path {path} to uninstall it"
+            event, f"`There is no plugin with path {path} to uninstall it`"
         )
     os.remove(path)
     if shortname in CMD_LIST:
@@ -168,6 +168,6 @@ async def unload(event):
         CMD_HELP.pop(shortname)
     try:
         remove_plugin(shortname)
-        await edit_or_reply(event, f"{shortname} is Uninstalled successfully")
+        await edit_or_reply(event, f"`{shortname} is Uninstalled successfully`")
     except Exception as e:
-        await edit_or_reply(event, f"Successfully uninstalled {shortname}\n{str(e)}")
+        await edit_or_reply(event, f"`Successfully uninstalled {shortname}\n{str(e)}`")
