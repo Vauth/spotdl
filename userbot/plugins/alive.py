@@ -95,12 +95,12 @@ temp = "{ALIVE_TEXT}\n\n\
 async def amireallyalive(event):
     "A kind of showing bot details by your inline bot"
     reply_to_id = await reply_id(event)
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "✧✧"
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**Catuserbot is Up and Running**"
+    EMOJI = gvarstatus("ALIVE_EMOJI") or "-"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**Userbot is Up and Running**"
     cat_caption = f"{ALIVE_TEXT}\n"
-    cat_caption += f"**{EMOJI} Telethon version :** `{version.__version__}`\n"
-    cat_caption += f"**{EMOJI} Userbot Version :** `{catversion}`\n"
-    cat_caption += f"**{EMOJI} Python Version :** `{python_version()}`\n"
+    cat_caption += f"**{EMOJI} Telethon version:** `{version.__version__}`\n"
+    cat_caption += f"**{EMOJI} Userbot version:** `{catversion}`\n"
+    cat_caption += f"**{EMOJI} Python version:** `{python_version()}`\n"
     cat_caption += f"**{EMOJI} Master:** {mention}\n"
     results = await event.client.inline_query(Config.TG_BOT_USERNAME, cat_caption)
     await results[0].click(event.chat_id, reply_to=reply_to_id, hide_via=True)
