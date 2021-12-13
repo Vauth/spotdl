@@ -15,7 +15,7 @@ from .utils import (
     verifyLoggerGroup,
 )
 
-LOGS = logging.getLogger("CatUserbot")
+LOGS = logging.getLogger("Odi")
 
 print(userbot.__copyright__)
 print("Licensed under the terms of the " + userbot.__license__)
