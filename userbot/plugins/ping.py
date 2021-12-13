@@ -21,17 +21,14 @@ async def _(event):
     flag = event.pattern_match.group(1)
     start = datetime.now()
     if flag == " -a":
-        catevent = await edit_or_reply(event, "__**✮ Pong!**__")
+        catevent = await edit_or_reply(event, "𝗣𝗼𝗻𝗴")
         end = datetime.now()
         tms = (end - start).microseconds / 1000
         ms = round((tms - 0.6) / 3, 3)
-        await catevent.edit(f"**🏓 Average Ping ! **\n┏━━━━━━━┓\n┃ ⁭⁫⌘ {ms}\n┗━━━━━━━┛")
+        await catevent.edit(f"𝗔𝘃𝗲𝗿𝗮𝗴𝗲\n`{ms}` 𝗆𝗌")
     else:
-        catevent = await edit_or_reply(event, "<b><i>✮ Pong!</b></i>", "html")
+        catevent = await edit_or_reply(event, "𝗣𝗼𝗻𝗴")
         end = datetime.now()
         ms = (end - start).microseconds / 1000
-        await catevent.edit(
-            f"┏━━━━━━━┓\n┃ ⁭⁫⌘ {ms} \n┃ ⁭⁫⌘ <b>{hmention}</b>\n┗━━━━━━━┛",
-            parse_mode="html",
-        )
-        
+        await catevent.edit(f"𝗣𝗼𝗻𝗴\n`{ms}` 𝗆𝗌",)
+       
