@@ -20,7 +20,7 @@ plugin_category = "tools"
             "c": "to create a private channel",
         },
         "usage": "{tr}create (b|g|c) <name of group/channel>",
-        "examples": "{tr}create b catuserbot",
+        "examples": "{tr}create b Odi",
     },
 )
 async def _(event):
@@ -28,9 +28,9 @@ async def _(event):
     type_of_group = event.pattern_match.group(1)
     group_name = event.pattern_match.group(2)
     if type_of_group == "c":
-        descript = "This is a Test Channel created using catuserbot"
+        descript = "𝘑𝘶𝘴𝘵 𝘢 𝘵𝘦𝘴𝘵 𝘤𝘩𝘢𝘯𝘯𝘦𝘭"
     else:
-        descript = "This is a Test Group created using catuserbot"
+        descript = "𝘑𝘶𝘴𝘵 𝘢 𝘵𝘦𝘴𝘵 𝘨𝘳𝘰𝘶𝘱"
     if type_of_group == "g":
         try:
             result = await event.client(
@@ -48,7 +48,7 @@ async def _(event):
                 )
             )
             await edit_or_reply(
-                event, f"Group `{group_name}` created successfully. Join {result.link}"
+                event, f"Group [{group_name}]({result.link}) created successfully"
             )
         except Exception as e:
             await edit_delete(event, f"**Error:**\n{str(e)}")
@@ -69,7 +69,7 @@ async def _(event):
             )
             await edit_or_reply(
                 event,
-                f"Channel `{group_name}` created successfully. Join {result.link}",
+                f"Channel [{group_name}]({result.link}) created successfully",
             )
         except Exception as e:
             await edit_delete(event, f"**Error:**\n{str(e)}")
@@ -80,9 +80,9 @@ async def _(event):
         if answer[0] != "error":
             await edit_or_reply(
                 event,
-                f"Mega group `{group_name}` created successfully. Join {answer[0].link}",
+                f"Mega group [{group_name}]({answer[0].link}) created successfully",
             )
         else:
             await edit_delete(event, f"**Error:**\n{str(answer[1])}")
     else:
-        await edit_delete(event, "Read `.help create` to know how to use me")
+        await edit_delete(event, "Read `,help create` to know how to use me")
