@@ -103,9 +103,9 @@ async def bot_start(event):
                 my_mention=my_mention,
             )
         else:
-            start_msg = f"Hey {mention} !\
-                        \nI'm 𝕺𝖉𝖎's assistant bot.\
-                        \nYou can contact to my master from here.\
+            start_msg = f"𝖧𝖾𝗒 {mention} !\
+                        \n𝖨'𝗆 𝗈𝖽𝗂'𝗌 𝖺𝗌𝗌𝗂𝗌𝗍𝖺𝗇𝗍 𝖻𝗈𝗍.\
+                        \n𝖸𝗈𝗎 𝖼𝖺𝗇 𝖼𝗈𝗇𝗍𝖺𝖼𝗍 𝗍𝗈 𝗆𝗒 𝗆𝖺𝗌𝗍𝖾𝗋 𝖿𝗋𝗈𝗆 𝗁𝖾𝗋𝖾.\
                         "
         buttons = [
             (
