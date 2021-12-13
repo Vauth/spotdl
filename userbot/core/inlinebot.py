@@ -251,7 +251,7 @@ async def inline_handler(event):  # sourcery no-metrics
     if query_user_id == Config.OWNER_ID or query_user_id in Config.SUDO_USERS:
         hmm = re.compile("secret (.*) (.*)")
         match = re.findall(hmm, query)
-        if query.startswith("**Userbot"):
+        if query.startswith("𝘚𝘦𝘦𝘮𝘴"):
             buttons = [
                 (
                     Button.url("Owner", "https://t.me/feelded"),
