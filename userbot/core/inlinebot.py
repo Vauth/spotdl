@@ -254,6 +254,7 @@ async def inline_handler(event):  # sourcery no-metrics
         if query.startswith("𝘚𝘦𝘦𝘮𝘴"):
             buttons = [
                 (
+                    Button.inline("Stats", data="stats"),
                     Button.url("Owner", "https://t.me/feelded"),
                 )
             ]
