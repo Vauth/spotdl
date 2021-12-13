@@ -62,8 +62,8 @@ async def startupmessage():
         if BOTLOG:
             Config.CATUBLOGO = await catub.tgbot.send_file(
                 BOTLOG_CHATID,
-                "https://telegra.ph/file/8efd97af0d9fb6a21169c.jpg",
-                caption="**Dazai Userbot has been started successfully.**",
+                "https://telegra.ph/file/f60f4da8f7af71c635013.jpg",
+                caption="**Userbot has been started successfully.**",
                 buttons=[(Button.url("Owner", "https://t.me/feelded"),)],
             )
     except Exception as e:
