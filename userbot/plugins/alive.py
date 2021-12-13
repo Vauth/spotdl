@@ -40,9 +40,9 @@ async def amireallyalive(event):
     reply_to_id = await reply_id(event)
     uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
-    EMOJI = gvarstatus("ALIVE_EMOJI") or " ⁭⁫⌘ "
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**✮ 𝕿𝖍𝖊 𝕭𝖔𝖙 𝕴𝖘 𝕽𝖚𝖓𝖓𝖎𝖓𝖌 𝕾𝖚𝖈𝖈𝖊𝖘𝖘𝖋𝖚𝖑𝖑𝖞 ✮**"
-    CAT_IMG = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/06bba6cd933837f365b04.jpg"
+    EMOJI = gvarstatus("ALIVE_EMOJI") or "-"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "𝘚𝘦𝘦𝘮𝘴 𝘢𝘱𝘱𝘢𝘳𝘦𝘯𝘵𝘭𝘺 𝘐'𝘮 𝘢𝘭𝘪𝘷𝘦"
+    CAT_IMG = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/c2e40a1217606fa1c07f0.jpg"
     cat_caption = gvarstatus("ALIVE_TEMPLATE") or temp
     caption = cat_caption.format(
         ALIVE_TEXT=ALIVE_TEXT,
@@ -73,15 +73,12 @@ async def amireallyalive(event):
 
 
 temp = "{ALIVE_TEXT}\n\n\
-┏━━━━━━━━━━━━━━━━━━━━┓\n\
-┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬ ⁭⁫{EMOJI} **Database:** `{dbhealth}`\n\
-┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬ ⁭⁫{EMOJI} **Telethon Version:** `{telever}`\n\
-┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬ ⁭⁫{EMOJI} **Userbot Version:** `{catver}`\n\
-┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬ ⁭⁫{EMOJI} **Python Version:** `{pyver}`\n\
-┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬ ⁭⁫{EMOJI} **Uptime:** `{uptime}`\n\
-┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬ ⁭⁫{EMOJI} **Ping:** `{ping}` ms\n\
-┃⁭⁫⁪⁫⁬⁭⁫⁪⁫⁬ ⁭⁫{EMOJI} **Master:** {mention}\n\
-┗━━━━━━━━━━━━━━━━━━━━┛\n"
+{EMOJI} 𝘜𝘴𝘦𝘳𝘣𝘰𝘵 𝘷𝘦𝘳𝘴𝘪𝘰𝘯: `{catver}`\n\
+{EMOJI} 𝘛𝘦𝘭𝘦𝘵𝘩𝘰𝘯 𝘷𝘦𝘳𝘴𝘪𝘰𝘯: `{telever}`\n\
+{EMOJI} 𝘗𝘺𝘵𝘩𝘰𝘯 𝘷𝘦𝘳𝘴𝘪𝘰𝘯: `{pyver}`\n\
+{EMOJI} 𝘜𝘱𝘵𝘪𝘮𝘦: `{uptime}`\n\
+{EMOJI} 𝘗𝘪𝘯𝘨: `{ping}`\n\
+{EMOJI} 𝘔𝘢𝘴𝘵𝘦𝘳: {mention}\n"
 
 
 @catub.cat_cmd(
