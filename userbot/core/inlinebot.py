@@ -255,7 +255,6 @@ async def inline_handler(event):  # sourcery no-metrics
             buttons = [
                 (
                     Button.inline("Stats", data="stats"),
-                    Button.url("Owner", "https://t.me/feelded"),
                 )
             ]
             ALIVE_PIC = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/8b6594a0286e4e473df88.jpg"
