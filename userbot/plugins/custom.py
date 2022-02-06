@@ -31,6 +31,7 @@ vlist = [
     "CUSTOM_STICKER_PACKNAME",
     "ENABLE_HAREM",
     "INLINE_BOT",
+    "VS_PACK",
 ]
 
 oldvars = {
