@@ -17,7 +17,6 @@ async def is_admin(catub, chat_id, userid):
         ):
             return True
     except Exception as e:
-        LOGS.info(str(e))
         return False
     else:
         return False
