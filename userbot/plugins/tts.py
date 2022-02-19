@@ -56,7 +56,7 @@ async def _(event):
         tts = gTTS(text, lang=lan)
         tts.save(required_file_name)
         command_to_execute = [
-            "ffmpeg",
+            "ffmpeg/ffmpeg",
             "-i",
             required_file_name,
             "-map",
