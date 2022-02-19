@@ -233,7 +233,6 @@ async def unzip(downloaded_file_name):
 #video sticker
 async def animator(media, mainevent, textevent):
     # //Hope u dunt kang :/ @Jisan7509 ==> Ok
-    w, h = (-1, 512) if h > w else (512, -1)
     if not os.path.isdir(Config.TEMP_DIR):
         os.makedirs(Config.TEMP_DIR)
     BadCat = await mainevent.client.download_media(media, Config.TEMP_DIR)
