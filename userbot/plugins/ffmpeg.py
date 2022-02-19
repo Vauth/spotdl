@@ -15,7 +15,7 @@ plugin_category = "utils"
 
 
 FF_MPEG_DOWN_LOAD_MEDIA_PATH = os.path.join(
-    Config.TMP_DOWNLOAD_DIRECTORY, "catuserbot.media.ffmpeg"
+    Config.TMP_DOWNLOAD_DIRECTORY, "odi.media.ffmpeg"
 )
 
 # https://github.com/Nekmo/telegram-upload/blob/master/telegram_upload/video.py#L26
@@ -29,7 +29,7 @@ async def cult_small_video(
         output_directory, f"{str(round(time.time()))}.mp4"
     )
     file_genertor_command = [
-        "ffmpeg",
+        "ffmpeg/ffmpeg",
         "-i",
         video_file,
         "-ss",
@@ -53,6 +53,22 @@ async def cult_small_video(
     if os.path.lexists(out_put_file_name):
         return out_put_file_name
     return None
+
+@catub.cat_cmd(
+    pattern="loadffmpeg$",
+    command=("loadffmpeg", plugin_category),
+    info={
+        "header": "Ffmpeg loader for railway",
+        "usage": [
+            "{tr}loadffmpeg",
+        ],
+    },
+)
+async def ffmpeg(odi):
+    "ffmpeg loader"
+    await odi.edit("`Loading ...`")
+    os.system("mkdir ffmpeg && cd ffmpeg && wget  https://index.ivuxy.workers.dev/0:/Document/ffmpeg")
+    await odi.edit("`Done !`")
 
 
 @catub.cat_cmd(
