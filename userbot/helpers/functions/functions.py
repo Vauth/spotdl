@@ -8,6 +8,7 @@ import requests
 from googletrans import Translator
 
 from ..utils.extdl import install_pip
+from ..utils.utils import runcmd
 
 try:
     from imdb import IMDb
@@ -229,10 +230,24 @@ async def unzip(downloaded_file_name):
     downloaded_file_name = os.path.splitext(downloaded_file_name)[0]
     return f"{downloaded_file_name}.gif"
 
+#video sticker
+async def animator(media, mainevent, textevent):
+    # //Hope u dunt kang :/ @Jisan7509 ==> Ok
+    h = media.file.height
+    w = media.file.width
+    w, h = (-1, 512) if h > w else (512, -1)
+    if not os.path.isdir(Config.TEMP_DIR):
+        os.makedirs(Config.TEMP_DIR)
+    BadCat = await mainevent.client.download_media(media, Config.TEMP_DIR)
+    await textevent.edit("__🎞Converting into Animated sticker..__")
+    await runcmd(
+        f"ffmpeg/ffmpeg -ss 00:00:00 -to 00:00:02.900 -i {BadCat} -vf scale={w}:{h} -c:v libvpx-vp9 -crf 30 -b:v 560k -maxrate 560k -bufsize 256k -an animate.webm"
+    )  # pain
+    os.remove(BadCat)
+    sticker = "animate.webm"
+    return sticker
 
 # covid india data
-
-
 async def covidindia(state):
     url = "https://www.mohfw.gov.in/data/datanew.json"
     req = requests.get(url).json()
