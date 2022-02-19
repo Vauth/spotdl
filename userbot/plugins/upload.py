@@ -49,7 +49,7 @@ def get_video_thumb(file, output=None, width=320):
     output = file + ".jpg"
     metadata = extractMetadata(createParser(file))
     cmd = [
-        "ffmpeg",
+        "ffmpeg/ffmpeg",
         "-i",
         file,
         "-ss",
