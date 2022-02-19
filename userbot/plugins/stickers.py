@@ -84,7 +84,7 @@ def pack_nick(username, pack, is_anim, is_video):
             return f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} {pack} (Animated)"
         elif is_video:
             return f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} {pack} (Video)"
-        return f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} {pack}"
+        return f"{gvarstatus('CUSTOM_STICKER_PACKNAME')} {pack} Pack"
 
     if is_anim:
         return f"@{username} {pack} Pack (Animated)"
