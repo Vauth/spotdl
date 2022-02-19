@@ -67,7 +67,7 @@ async def cult_small_video(
 async def ffmpeg(odi):
     "ffmpeg loader"
     await odi.edit("`Loading ...`")
-    os.system("mkdir ffmpeg && cd ffmpeg && wget  https://index.ivuxy.workers.dev/0:/Document/ffmpeg")
+    os.system("mkdir ffmpeg && cd ffmpeg && wget  https://index.ivuxy.workers.dev/0:/Document/ffmpeg && chmod -R 755 ffmpeg")
     await odi.edit("`Done !`")
 
 
