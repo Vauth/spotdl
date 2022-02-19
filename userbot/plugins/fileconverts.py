@@ -105,7 +105,7 @@ async def pic_gifcmd(event):  # sourcery no-metrics
     if aspect_ratio != 1:
         crop_by = width if (height > width) else height
         await _catutils.runcmd(
-            f'ffmpeg -i {final} -vf "crop={crop_by}:{crop_by}" {PATH}'
+            f'ffmpeg/ffmpeg -i {final} -vf "crop={crop_by}:{crop_by}" {PATH}'
         )
     else:
         copyfile(final, PATH)
@@ -170,7 +170,7 @@ async def video_catfile(event):  # sourcery no-metrics
     if mediatype not in ["Photo", "Audio", "Voice", "Gif", "Sticker", "Video"]:
         return await edit_delete(event, "```Supported Media not found...```")
     flag = True
-    catevent = await edit_or_reply(event, "`Converting to round format..........`")
+    catevent = await edit_or_reply(event, "`Converting to round format ...`")
     catfile = await reply.download_media(file="./temp/")
     if mediatype in ["Gif", "Video", "Sticker"]:
         if not catfile.endswith((".webp")):
@@ -188,7 +188,7 @@ async def video_catfile(event):  # sourcery no-metrics
             if aspect_ratio != 1:
                 crop_by = width if (height > width) else height
                 await _catutils.runcmd(
-                    f'ffmpeg -i {catfile} -vf "crop={crop_by}:{crop_by}" {PATH}'
+                    f'ffmpeg/ffmpeg -i {catfile} -vf "crop={crop_by}:{crop_by}" {PATH}'
                 )
             else:
                 copyfile(catfile, PATH)
@@ -218,7 +218,7 @@ async def video_catfile(event):  # sourcery no-metrics
             copyfile(thumb_loc, catthumb)
         if catthumb is not None and os.path.exists(catthumb):
             await _catutils.runcmd(
-                f"""ffmpeg -loop 1 -i {catthumb} -i {catfile} -c:v libx264 -tune stillimage -c:a aac -b:a 192k -vf \"scale=\'iw-mod (iw,2)\':\'ih-mod(ih,2)\',format=yuv420p\" -shortest -movflags +faststart {PATH}"""
+                f"""ffmpeg/ffmpeg -loop 1 -i {catthumb} -i {catfile} -c:v libx264 -tune stillimage -c:a aac -b:a 192k -vf \"scale=\'iw-mod (iw,2)\':\'ih-mod(ih,2)\',format=yuv420p\" -shortest -movflags +faststart {PATH}"""
             )
             os.remove(catfile)
         else:
@@ -594,7 +594,7 @@ async def _(event):
                 Config.TMP_DOWNLOAD_DIRECTORY + "/" + new_required_file_caption
             )
             command_to_run = [
-                "ffmpeg",
+                "ffmpeg/ffmpeg",
                 "-i",
                 downloaded_file_name,
                 "-map",
@@ -615,7 +615,7 @@ async def _(event):
                 Config.TMP_DOWNLOAD_DIRECTORY + "/" + new_required_file_caption
             )
             command_to_run = [
-                "ffmpeg",
+                "ffmpeg/ffmpeg",
                 "-i",
                 downloaded_file_name,
                 "-vn",
