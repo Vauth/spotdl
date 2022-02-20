@@ -1,5 +1,7 @@
+import json
 import os
-from typing import Optional
+from json.decoder import JSONDecodeError
+from typing import Optional, Tuple, Union
 
 from moviepy.editor import VideoFileClip
 from PIL import Image
