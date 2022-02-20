@@ -103,6 +103,15 @@ async def ipchange():
     if gvarstatus("ipaddress") is None:
         addgvar("ipaddress", newip)
         return "IP Added"
+    oldip = gvarstatus("ipaddress")
+    if oldip != newip:
+        delgvar("ipaddress")
+        LOGS.info("IP Change Detected")
+        """try:
+            await catub.disconnect()
+        except (ConnectionError, CancelledError):
+            pass"""
+        return "IP Change"
 
 async def add_bot_to_logger_group(chat_id):
     """
