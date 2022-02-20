@@ -99,19 +99,7 @@ async def ipchange():
     """
     Just to check if ip change or not
     """
-    newip = (requests.get("https://httpbin.org/ip").json())["origin"]
-    if gvarstatus("ipaddress") is None:
-        addgvar("ipaddress", newip)
-        return "IP Added"
-    oldip = gvarstatus("ipaddress")
-    if oldip != newip:
-        delgvar("ipaddress")
-        LOGS.info("IP Change Detected")
-        try:
-            await catub.disconnect()
-        except (ConnectionError, CancelledError):
-            pass
-        return "IP Change"
+    LOGS.info("IP Changeer started")
 
 async def add_bot_to_logger_group(chat_id):
     """
