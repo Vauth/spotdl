@@ -40,10 +40,10 @@ Catcheck = CatCheck()
 
 
 async def startup_process():
-    check = await ipchange()
-    if check is not None:
-        Catcheck.sucess = False
-        return
+    #check = await ipchange()
+    #if check is not None:
+        #Catcheck.sucess = False
+        #return
     await verifyLoggerGroup()
     await load_plugins("plugins")
     await load_plugins("assistant")
