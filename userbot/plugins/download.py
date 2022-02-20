@@ -16,7 +16,8 @@ from userbot import catub
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers import humanbytes, progress
-from ..helpers.utils import _format, get_c_m_message
+from ..helpers.utils import _format
+from ..helpers.utils.tools import get_c_m_message
 
 plugin_category = "misc"
 
