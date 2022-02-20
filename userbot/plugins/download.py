@@ -7,6 +7,7 @@ import time
 from datetime import datetime
 
 from pySmartDL import SmartDL
+from telethon.errors import ChannelPrivateError
 from telethon.tl import types
 from telethon.utils import get_extension
 
@@ -15,7 +16,7 @@ from userbot import catub
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers import humanbytes, progress
-from ..helpers.utils import _format
+from ..helpers.utils import _format, get_c_m_message
 
 plugin_category = "misc"
 
@@ -132,15 +133,15 @@ async def _(event):  # sourcery no-metrics
         downloader = SmartDL(url, str(downloaded_file_name), progress_bar=False)
         downloader.start(blocking=False)
         c_time = time.time()
-        count = 0
+        delay = 0
         oldmsg = ""
         while not downloader.isFinished():
             total_length = downloader.filesize or None
             downloaded = downloader.get_dl_size()
             now = time.time()
-            now - c_time
+            delay = now - c_time
             percentage = downloader.get_progress() * 100
-            downloader.get_speed()
+            dspeed = downloader.get_speed()
             progress_str = "`{0}{1} {2}`%".format(
                 "".join("▰" for i in range(math.floor(percentage / 5))),
                 "".join("▱" for i in range(20 - math.floor(percentage / 5))),
@@ -151,13 +152,12 @@ async def _(event):  # sourcery no-metrics
                                 \n\n**URL : **`{url}`\
                                 \n**File Name :** `{file_name}`\
                                 \n{progress_str}\
-                                \n`{humanbytes(downloaded)} of {humanbytes(total_length)}`\
+                                \n`{humanbytes(downloaded)} of {humanbytes(total_length)} @ {humanbytes(dspeed)}`\
                                 \n**ETA : **`{estimated_total_time}`"
-            count += 1
-            if oldmsg != current_message:
-                if count >= 0.5:
-                    count = 0
-                    await mone.edit(current_message)
+            if oldmsg != current_message and delay > 5:
+                await mone.edit(current_message)
+                delay = 0
+                c_time = time.time()
                 oldmsg = current_message
             await asyncio.sleep(1)
         end = datetime.now()
@@ -271,4 +271,50 @@ async def _(event):  # sourcery no-metrics
     ms = (end - start).seconds
     await mone.edit(
         f"**•  Downloaded in {ms} seconds.**\n**•  Downloaded to :- **  `{os.path.relpath(file_name,os.getcwd())}`\n   "
+    )
+
+
+@catub.cat_cmd(
+    pattern="dlc ?(.*)",
+    command=("dlc", plugin_category),
+    info={
+        "header": "To download from telegram link",
+        "description": "It will download from telegram message link.",
+        "note": "Useful for protected content",
+        "usage": [
+            "{tr}dlc <reply>",
+        ],
+    },
+)
+async def _e(event):
+    "Telegram Message link Downloader"
+    sm_ = await edit_or_reply(event, "`Downloading ...`")
+    reply = await event.get_reply_message()
+    input = event.pattern_match.group(1)
+    if not input and reply and reply.text:
+        input = reply.text
+    elif not input:
+        return await edit_delete(event, "`Give a telegram message link`")
+    _c, m_ = get_c_m_message(input)
+    try:
+        _ok_m_ = await event.client.get_messages(entity=_c, ids=m_)
+    except ChannelPrivateError:
+        await edit_delete(event, "`Channel is private or ID is invalid`")
+        return
+    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
+        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+    c_time = time.time()
+    start = datetime.now()
+    downloaded_file_name = await _ok_m_.download_media(
+        Config.TMP_DOWNLOAD_DIRECTORY,
+        progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
+            progress(d, t, sm_, c_time, "`Trying to download ...`")
+        ),
+    )
+    end = datetime.now()
+    ms = (end - start).seconds
+    await sm_.edit(
+        "**• Downloaded to:-** `{}`\n**• Time Taken:** `{} seconds`".format(
+            downloaded_file_name, ms
+        )
     )
