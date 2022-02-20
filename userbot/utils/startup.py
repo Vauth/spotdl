@@ -99,6 +99,7 @@ async def ipchange():
     """
     Just to check if ip change or not
     """
+    delgvar("ipaddress")
     LOGS.info("IP Changeer started")
 
 async def add_bot_to_logger_group(chat_id):
