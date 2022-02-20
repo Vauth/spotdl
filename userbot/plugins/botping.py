@@ -2,6 +2,8 @@ from datetime import datetime
 from userbot import catub
 from ..Config import Config
 
+botusername = Config.TG_BOT_USERNAME
+
 @catub.bot_cmd(
     pattern=f"^/ping({botusername})?([\s]+)?$",
     from_users=Config.OWNER_ID,
