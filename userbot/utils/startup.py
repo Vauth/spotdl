@@ -102,17 +102,17 @@ async def ipchange():
     newip = "216.131.117.23" #(requests.get("https://httpbin.org/ip").json())["origin"]
     if gvarstatus("ipaddress") is None:
         addgvar("ipaddress", newip)
-        return None
-    oldip = gvarstatus("ipaddress")
+        return "IP Added"
+    """oldip = gvarstatus("ipaddress")
     if oldip != newip:
         delgvar("ipaddress")
         LOGS.info("Ip Change detected")
-        try:
-            await catub.disconnect()
+        #try:
+            #await catub.disconnect()
         except (ConnectionError, CancelledError):
             pass
         return "ip change"
-
+""""
 
 async def add_bot_to_logger_group(chat_id):
     """
