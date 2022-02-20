@@ -16,10 +16,10 @@ from validators.url import url
 from userbot import catub
 
 from ..core.logger import logging
-from ..helpers.functions import name_dl, song_dl, video_dl, yt_search
+from ..core.managers import edit_delete, edit_or_reply
+from ..helpers.functions import name_dl, song_dl, video_dl, yt_data, yt_search
 from ..helpers.tools import media_type
 from ..helpers.utils import _catutils, reply_id
-from . import edit_delete, edit_or_reply, hmention
 
 plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
@@ -55,9 +55,8 @@ async def _(event):
     reply = await event.get_reply_message()
     if event.pattern_match.group(2):
         query = event.pattern_match.group(2)
-    elif reply:
-        if reply.message:
-            query = reply.message
+    elif reply and reply.message:
+        query = reply.message
     else:
         return await edit_or_reply(event, "`What I am Supposed to find `")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
@@ -98,15 +97,14 @@ async def _(event):
         catthumb = Path(f"{catname}.webp")
     elif not os.path.exists(catthumb):
         catthumb = None
-
+    ytdata = await yt_data(video_link)
     await event.client.send_file(
         event.chat_id,
         song_file,
         force_document=False,
-        caption=f"<b><i>➥ Song :- {query}</i></b>\n<b><i>➥ Uploaded by :- {hmention}</i></b>",
+        caption=f"**Title:** `{ytdata['title']}`",
         thumb=catthumb,
         supports_streaming=True,
-        parse_mode="html",
         reply_to=reply_to_id,
     )
     await catevent.delete()
@@ -140,9 +138,8 @@ async def _(event):
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
         query = event.pattern_match.group(1)
-    elif reply:
-        if reply.message:
-            query = reply.messag
+    elif reply and reply.message:
+        query = reply.message
     else:
         return await edit_or_reply(event, "`What I am Supposed to find`")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
@@ -183,14 +180,14 @@ async def _(event):
         catthumb = Path(f"{catname}.webp")
     elif not os.path.exists(catthumb):
         catthumb = None
+    ytdata = await yt_data(video_link)
     await event.client.send_file(
         event.chat_id,
         vsong_file,
         force_document=False,
-        caption=f"<b><i>➥ Song :- {query}</i></b>\n<b><i>➥ Uploaded by :- {hmention}</i></b>",
+        caption=f"**Title:** `{ytdata['title']}`",
         thumb=catthumb,
         supports_streaming=True,
-        parse_mode="html",
         reply_to=reply_to_id,
     )
     await catevent.delete()
@@ -234,8 +231,9 @@ async def shazamcmd(event):
     except Exception as e:
         LOGS.error(e)
         return await edit_delete(
-            catevent, f"**Error while reverse searching song:**\n__{str(e)}__"
+            catevent, f"**Error while reverse searching song:**\n__{e}__"
         )
+
     image = track["images"]["background"]
     song = track["share"]["subject"]
     await event.client.send_file(
@@ -288,7 +286,7 @@ async def _(event):
         await event.client.send_file(
             event.chat_id,
             music,
-            caption=f"<b><i>➥ Song :- {song}</i></b>\n<b><i>➥ Uploaded by :- {hmention}</i></b>",
+            caption=f"<b>➥ Song :- <code>{song}</code></b>",
             parse_mode="html",
             reply_to=reply_id_,
         )
