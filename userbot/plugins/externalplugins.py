@@ -14,7 +14,7 @@ if Config.PLUGIN_CHANNEL:
 
     async def install():
         documentss = await catub.get_messages(
-            Config.PLUGIN_CHANNEL, None, filter=InputMessagesFilterDocument
+            Config.PLUGIN_CHANNEL, filter=InputMessagesFilterDocument
         )
         total = int(documentss.total)
         for module in range(total):
