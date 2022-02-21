@@ -128,7 +128,7 @@ async def lst(event):
             f"there is no such directory or file with the name `{cat}` check again",
         )
         return
-    catcmd = f"rm -rf {path}"
+    catcmd = f"rm -rf '{path}'"
     if os.path.isdir(path):
         await _catutils.runcmd(catcmd)
         await edit_or_reply(event, f"Succesfully removed `{path}` directory")
