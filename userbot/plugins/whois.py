@@ -19,12 +19,11 @@ from . import spamwatch
 plugin_category = "utils"
 LOGS = logging.getLogger(__name__)
 
-
 async def fetch_info(replied_user, event):
     """Get details from the User object."""
     replied_user_profile_photos = await event.client(
         GetUserPhotosRequest(
-            user_id=replied_user.user.id, offset=42, max_id=0, limit=80
+            user_id=replied_user.full_user.id, offset=42, max_id=0, limit=80
         )
     )
     replied_user_profile_photos_count = "User haven't set profile pic"
@@ -32,19 +31,19 @@ async def fetch_info(replied_user, event):
         replied_user_profile_photos_count = replied_user_profile_photos.count
     except AttributeError:
         pass
-    user_id = replied_user.user.id
-    first_name = replied_user.user.first_name
-    last_name = replied_user.user.last_name
+    user_id = replied_user.full_user.id
+    first_name = replied_user.full_user.first_name
+    last_name = replied_user.full_user.last_name
     try:
         dc_id, location = get_input_location(replied_user.profile_photo)
     except Exception:
         dc_id = "Couldn't fetch DC ID!"
     common_chat = replied_user.common_chats_count
-    username = replied_user.user.username
+    username = replied_user.full_user.username
     user_bio = replied_user.about
-    is_bot = replied_user.user.bot
-    restricted = replied_user.user.restricted
-    verified = replied_user.user.verified
+    is_bot = replied_user.full_user.bot
+    restricted = replied_user.full_user.restricted
+    verified = replied_user.full_user.verified
     photo = await event.client.download_profile_photo(
         user_id,
         Config.TMP_DOWNLOAD_DIRECTORY + str(user_id) + ".jpg",
@@ -90,9 +89,9 @@ async def _(event):
         return
     catevent = await edit_or_reply(event, "`Fetching userinfo wait....`")
     replied_user = await event.client(GetFullUserRequest(replied_user.id))
-    user_id = replied_user.user.id
+    user_id = replied_user.full_user.id
     # some people have weird HTML in their names
-    first_name = html.escape(replied_user.user.first_name)
+    first_name = html.escape(replied_user.full_user.first_name)
     # https://stackoverflow.com/a/5072031/4723940
     # some Deleted Accounts do not have first_name
     if first_name is not None:
