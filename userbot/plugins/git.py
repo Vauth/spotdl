@@ -33,11 +33,7 @@ GIT_TEMP_DIR = "./temp/"
 )
 async def source(e):
     "Source code link of userbot"
-    await edit_or_reply(
-        e,
-        "Click [here](https://github.com/llawllet/DeadPack) to open this bot source code\",
-    )
-
+    await edit_or_reply(e, "Click [here](https://github.com/llawllet/DeadPack) to open this bot source code")
 
 @catub.cat_cmd(
     pattern="github( -l(\d+))? ([\s\S]*)",
