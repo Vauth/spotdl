@@ -1,4 +1,3 @@
-#By @FeelDeD
 from telethon import functions
 from . import catub
 
