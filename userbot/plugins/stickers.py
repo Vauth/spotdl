@@ -510,7 +510,7 @@ async def pack_kang(event):  # sourcery no-metrics
     blablapacknames = []
     pack = None
     for message in reqd_sticker_set.documents:
-        if "image" in message.mime_type.split("/")
+        if "image" in message.mime_type.split("/"):
             await edit_or_reply(
                 catevent,
                 f"`This sticker pack is kanging now . Status of kang process : {kangst}/{noofst}`",
