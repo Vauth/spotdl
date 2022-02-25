@@ -497,33 +497,20 @@ async def pack_kang(event):  # sourcery no-metrics
             event, "`This is not a sticker. Reply to a sticker.`", 5
         )
     try:
-        get_stickerset = await event.client(
-            GetStickerSetRequest(
-                InputStickerSetID(
-                    id=stickerset_attr.stickerset.id,
-                    access_hash=stickerset_attr.stickerset.access_hash,
-                )
-            )
-        )
+        get_stickerset = await event.client(GetStickerSetRequest(InputStickerSetID(id=stickerset_attr.stickerset.id,access_hash=stickerset_attr.stickerset.access_hash,), hash=0))
     except Exception:
         return await edit_delete(
             catevent,
             "`I guess this sticker is not part of any pack. So, i cant kang this sticker pack try kang for this sticker`",
         )
     kangst = 1
-    reqd_sticker_set = await event.client(
-        functions.messages.GetStickerSetRequest(
-            stickerset=types.InputStickerSetShortName(
-                short_name=f"{get_stickerset.set.short_name}"
-            )
-        )
-    )
+    reqd_sticker_set = await event.client(functions.messages.GetStickerSetRequest(stickerset=types.InputStickerSetShortName(short_name=f"{get_stickerset.set.short_name}"), hash=0))
     noofst = get_stickerset.set.count
     blablapacks = []
     blablapacknames = []
     pack = None
     for message in reqd_sticker_set.documents:
-        if "image" in message.mime_type.split("/"):
+        if "image" in message.mime_type.split("/")
             await edit_or_reply(
                 catevent,
                 f"`This sticker pack is kanging now . Status of kang process : {kangst}/{noofst}`",
@@ -851,14 +838,7 @@ async def get_pack_info(event):
         )
     if not isinstance(stickerset_attr, DocumentAttributeSticker):
         return await catevent.edit("`This is not a sticker. Reply to a sticker.`")
-    get_stickerset = await event.client(
-        GetStickerSetRequest(
-            InputStickerSetID(
-                id=stickerset_attr.stickerset.id,
-                access_hash=stickerset_attr.stickerset.access_hash,
-            )
-        )
-    )
+    get_stickerset = await event.client(GetStickerSetRequest(InputStickerSetID(id=stickerset_attr.stickerset.id,access_hash=stickerset_attr.stickerset.access_hash,), hash=0))
     pack_emojis = []
     for document_sticker in get_stickerset.packs:
         if document_sticker.emoticon not in pack_emojis:
