@@ -47,7 +47,7 @@ async def _(event):
     except Exception as e:
         LOGS.error(e)
     try:
-        await catub.disconnect()
+        await event.client.reload(sandy)
     except CancelledError:
         pass
     except Exception as e:
@@ -68,9 +68,9 @@ async def _(event):
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n" "Bot shut down")
     await edit_or_reply(event, "`Turning off bot now ...Manually turn me on later`")
-    if HEROKU_APP is not None:
+    try:
         HEROKU_APP.process_formation()["worker"].scale(0)
-    else:
+    except Exception:
         sys.exit(0)
 
 
@@ -91,7 +91,7 @@ async def _(event):
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,
-            "You put the bot to sleep for " + str(counter) + " seconds",
+            "#SLEEP\nYou put the bot to sleep for " + str(counter) + " seconds",
         )
     event = await edit_or_reply(event, f"`ok, let me sleep for {counter} seconds`")
     sleep(counter)
