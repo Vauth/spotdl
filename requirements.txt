@@ -79,3 +79,4 @@ instaloader
 pokedex.py
 spotdl
 opencv-python-headless
+maigret
