@@ -70,9 +70,12 @@ async def monito_p_m_s(event):  # sourcery no-metrics
 @catub.cat_cmd(incoming=True, func=lambda e: e.mentioned, edited=False, forword=None)
 async def log_tagged_messages(event):
     hmm = await event.get_chat()
-    if hmm.has_link == True:
-        logmsglink  = f'https://t.me/{hmm.username}/{event.message.id}'
-    else:
+    try:
+        if hmm.has_link == True:
+            logmsglink  = f'https://t.me/{hmm.username}/{event.message.id}'
+        else:
+            logmsglink = f'https://t.me/c/{hmm.id}/{event.message.id}'
+    except Exception:
         logmsglink = f'https://t.me/c/{hmm.id}/{event.message.id}'
     from .afk import AFK_
 
