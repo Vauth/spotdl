@@ -1,4 +1,4 @@
-# pm and tagged messages logger for catuserbot by @mrconfused (@sandy1709)
+# pm and tagged messages logger for catuserbot by @mrconfused (@sandy1709) + lil edit
 import asyncio
 
 from userbot import catub
@@ -70,6 +70,10 @@ async def monito_p_m_s(event):  # sourcery no-metrics
 @catub.cat_cmd(incoming=True, func=lambda e: e.mentioned, edited=False, forword=None)
 async def log_tagged_messages(event):
     hmm = await event.get_chat()
+    if hmm.has_link == True:
+        logmsglink  = f'https://t.me/{hmm.username}/{event.message.id}'
+    else:
+        logmsglink = f'https://t.me/c/{hmm.id}/{event.message.id}'
     from .afk import AFK_
 
     if gvarstatus("GRPLOG") and gvarstatus("GRPLOG") == "false":
@@ -96,13 +100,13 @@ async def log_tagged_messages(event):
         resalt += f"\n<b>Message type : </b><code>{messaget}</code>"
     else:
         resalt += f"\n<b>Message : </b>{event.message.message}"
-    resalt += f"\n<b>Message link: </b><a href = 'https://t.me/c/{hmm.id}/{event.message.id}'> link</a>"
+    resalt += f"\n<b>Message link: </b><a href = '{logmsglink}'> link</a>"
     if not event.is_private:
         await event.client.send_message(
             Config.PM_LOGGER_GROUP_ID,
             resalt,
             parse_mode="html",
-            link_preview=False,
+            link_preview=True,
         )
 
 
