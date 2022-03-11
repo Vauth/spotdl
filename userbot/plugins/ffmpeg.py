@@ -1,7 +1,10 @@
 # ported from uniborg by @spechide
 import asyncio
 import io
+
 import os
+from pySmartDL import SmartDL
+
 import time
 from datetime import datetime
 
@@ -66,9 +69,16 @@ async def cult_small_video(
 )
 async def ffmpeg(odi):
     "ffmpeg loader"
-    await odi.edit("`Loading ...`")
-    os.system("mkdir ffmpeg && cd ffmpeg && wget  https://index.ivuxy.workers.dev/0:/Document/ffmpeg && chmod -R 755 ffmpeg")
-    await odi.edit("`Done !`")
+    await odi.edit("`Loading ffmpeg ...`")
+    url = "https://index.ivuxy.workers.dev/0:/Document/ffmpeg"
+    if os.path.exists("ffmpeg"):
+        os.remove("ffmpeg")
+    os.mkdir("ffmpeg")
+    dest = "ffmpeg"
+    obj = SmartDL(url, dest, timeout=15, progress_bar=False)
+    obj.start()
+    os.system("chmod -R 755 ffmpeg")
+    await odi.edit("`Successfully loaded !`")
 
 
 @catub.cat_cmd(
