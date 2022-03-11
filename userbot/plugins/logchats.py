@@ -111,6 +111,7 @@ async def log_tagged_messages(event):
             parse_mode="html",
             link_preview=True,
         )
+        await event.client.send_read_acknowledge(Config.PM_LOGGER_GROUP_ID, clear_mentions=True)
 
 
 @catub.cat_cmd(
