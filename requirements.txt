@@ -79,3 +79,5 @@ instaloader
 pokedex.py
 spotdl
 opencv-python-headless
+youtube_search
+yt_dlp
