@@ -176,9 +176,9 @@ async def _(event):
         sudousers = {}
     if len(sudochats) == 0:
         return await edit_delete(
-            event, "__There are no sudo users for your Catuserbot.__"
+            event, "__There are no sudo users__"
         )
-    result = "**The list of sudo users for your Catuserbot are :**\n\n"
+    result = "**The list of sudo users:**\n\n"
     for chat in sudochats:
         result += f"☞ **Name:** {mentionuser(sudousers[str(chat)]['chat_name'],sudousers[str(chat)]['chat_id'])}\n"
         result += f"**Chat Id :** `{chat}`\n"
@@ -256,7 +256,7 @@ async def _(event):  # sourcery no-metrics
         loadcmds = []
         for plugin in input_str:
             if plugin not in PLG_INFO:
-                errors += f"`{cmd}` __There is no such plugin in your CatUserbot__.\n"
+                errors += f"`{cmd}` __There is no such plugin__.\n"
             else:
                 loadcmds += PLG_INFO[plugin]
     else:
@@ -264,7 +264,7 @@ async def _(event):  # sourcery no-metrics
         loadcmds = []
         for cmd in input_str:
             if cmd not in CMD_INFO:
-                errors += f"`{cmd}` __There is no such command in your CatUserbot__.\n"
+                errors += f"`{cmd}` __There is no such command__.\n"
             elif cmd in sudocmds:
                 errors += f"`{cmd}` __Is already enabled for sudo users__.\n"
             else:
