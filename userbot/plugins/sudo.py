@@ -271,7 +271,7 @@ async def _(event):  # sourcery no-metrics
                 loadcmds.append(cmd)
     for cmd in loadcmds:
         sqllist.add_to_list("sudo_enabled_cmds", cmd)
-    result = f"__Successfully enabled __ `{len(loadcmds)}` __ for CatUserbot sudo.__\n"
+    result = f"__Successfully enabled __ `{len(loadcmds)}` __ for sudo.__\n"
     output = (
         result + "**Bot is reloading to apply the changes. Please wait for a minute**\n"
     )
