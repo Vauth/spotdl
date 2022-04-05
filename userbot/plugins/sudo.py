@@ -38,13 +38,13 @@ def get_key(val):
     pattern="sudo (on|off)$",
     command=("sudo", plugin_category),
     info={
-        "header": "To enable or disable sudo of your Catuserbot.",
+        "header": "To enable or disable sudo.",
         "description": "Initially all sudo commands are disabled, you need to enable them by addscmd\n Check `{tr}help -c addscmd`",
         "usage": "{tr}sudo <on/off>",
     },
 )
 async def chat_blacklist(event):
-    "To enable or disable sudo of your CatUserbot."
+    "To enable or disable sudo."
     input_str = event.pattern_match.group(1)
     sudousers = _sudousers_list()
     if input_str == "on":
@@ -345,7 +345,7 @@ async def _(event):  # sourcery no-metrics
         flagcmds = []
         for plugin in input_str:
             if plugin not in PLG_INFO:
-                errors += f"`{cmd}` __There is no such plugin in your CatUserbot__.\n"
+                errors += f"`{cmd}` __There is no such plugin__.\n"
             else:
                 flagcmds += PLG_INFO[plugin]
     else:
@@ -353,7 +353,7 @@ async def _(event):  # sourcery no-metrics
         flagcmds = []
         for cmd in input_str:
             if cmd not in CMD_INFO:
-                errors += f"`{cmd}` __There is no such command in your CatUserbot__.\n"
+                errors += f"`{cmd}` __There is no such command__.\n"
             elif cmd not in sudocmds:
                 errors += f"`{cmd}` __Is already disabled for sudo users__.\n"
             else:
@@ -363,7 +363,7 @@ async def _(event):  # sourcery no-metrics
         if sqllist.is_in_list("sudo_enabled_cmds", cmd):
             count += 1
             sqllist.rm_from_list("sudo_enabled_cmds", cmd)
-    result = f"__Successfully disabled __ `{count}` __ for CatUserbot sudo.__\n"
+    result = f"__Successfully disabled __ `{count}` __ for sudo.__\n"
     output = (
         result + "**Bot is reloading to apply the changes. Please wait for a minute**\n"
     )
