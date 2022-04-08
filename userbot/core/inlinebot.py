@@ -375,7 +375,7 @@ async def inline_handler(event):  # sourcery no-metrics
             _result = main_menu()
             result = builder.article(
                 title="Helper ",
-                description="Help menu for Dazai Userbot",
+                description="Help menu for Odium Userbot",
                 text=_result[0],
                 buttons=_result[1],
                 link_preview=False,
@@ -508,6 +508,8 @@ async def inline_handler(event):  # sourcery no-metrics
                     buttons=buttons,
                 )
             await event.answer([result] if result else None)
+    else:
+        await event.answer([])
 
 @catub.tgbot.on(CallbackQuery(data=re.compile(b"close")))
 @check_owner
