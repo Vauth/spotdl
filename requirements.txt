@@ -80,4 +80,4 @@ spotdl
 opencv-python-headless
 youtube_search
 yt_dlp
-https://github.com/alexmercerind/youtube-search-python/archive/main.zip
+https://github.com/marshallcares/youtube-search-python/archive/main.zip
