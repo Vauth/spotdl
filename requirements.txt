@@ -70,7 +70,7 @@ vcsi
 wand
 wget
 git+https://github.com/goldsmith/Wikipedia
-git+https://github.com/alexmercerind/youtube-search-python
+youtube-search-python
 git+https://github.com/sandy1709/py-googletrans
 youtube_dl
 hentai
