@@ -631,6 +631,7 @@ async def anilist(event):  # sourcery no-metrics
         result["name"]["full"],
         f"<code>{caption}</code>\n" + f"<br>" + html_,
     )
+    await event.delete()
     await event.client.send_file(
         event.chat_id,
         file=result["image"]["large"],
