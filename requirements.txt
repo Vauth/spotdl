@@ -28,6 +28,7 @@ jikanpy
 justwatch
 lottie
 lyricsgenius
+markdown-it-py
 markdown
 motor
 moviepy
