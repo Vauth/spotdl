@@ -43,13 +43,13 @@ def humanbytes(size: int) -> str:
     if size is None or isinstance(size, str):
         return ""
 
-    power = 2 ** 10
+    power = 2**10
     raised_to_pow = 0
     dict_power_n = {0: "", 1: "Ki", 2: "Mi", 3: "Gi", 4: "Ti"}
     while size > power:
         size /= power
         raised_to_pow += 1
-    return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
+    return f"{str(round(size, 2))} {dict_power_n[raised_to_pow]}B"
 
 
 def time_formatter(seconds: int) -> str:
@@ -58,11 +58,12 @@ def time_formatter(seconds: int) -> str:
     days, hours = divmod(hours, 24)
     seconds = round(seconds, 2)
     tmp = (
-        ((str(days) + " day(s), ") if days else "")
-        + ((str(hours) + " hour(s), ") if hours else "")
-        + ((str(minutes) + " minute(s), ") if minutes else "")
-        + ((str(seconds) + " second(s), ") if seconds else "")
+        (f"{str(days)} day(s), " if days else "")
+        + (f"{str(hours)} hour(s), " if hours else "")
+        + (f"{str(minutes)} minute(s), " if minutes else "")
+        + (f"{str(seconds)} second(s), " if seconds else "")
     )
+
     return tmp[:-2]
 
 
@@ -71,21 +72,21 @@ def readable_time(seconds: int) -> str:
     hours, minutes = divmod(minutes, 60)
     days, hours = divmod(hours, 24)
     return (
-        ((str(int(days)) + " day(s), ") if days else "")
-        + ((str(int(hours)) + ":") if hours else "00:")
-        + ((str(int(minutes)) + ":") if minutes else "00:")
+        (f"{int(days)} day(s), " if days else "")
+        + (f"{int(hours)}:" if hours else "00:")
+        + (f"{int(minutes)}:" if minutes else "00:")
         + (str(int(seconds)) if seconds else "00")
     )
 
 
 def human_to_bytes(size: str) -> int:
     units = {
-        "M": 2 ** 20,
-        "MB": 2 ** 20,
-        "G": 2 ** 30,
-        "GB": 2 ** 30,
-        "T": 2 ** 40,
-        "TB": 2 ** 40,
+        "M": 2**20,
+        "MB": 2**20,
+        "G": 2**30,
+        "GB": 2**30,
+        "T": 2**40,
+        "TB": 2**40,
     }
 
     size = size.upper()
@@ -132,22 +133,23 @@ async def progress(
         eta = round((total - current) / speed)
         elapsed_time = round(elapsed_time)
         if "upload" in prog_type.lower():
-            status = f"Uploading"
+            status = "Uploading"
         elif "download" in prog_type.lower():
-            status = f"Downloading"
+            status = "Downloading"
         else:
             status = "Unknown"
         progress_str = "`{0}` | `[{1}{2}] {3}%`".format(
             status,
             "".join(
-                Config.FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 5))
+                Config.FINISHED_PROGRESS_STR for _ in range(math.floor(percentage / 5))
             ),
             "".join(
                 Config.UNFINISHED_PROGRESS_STR
-                for i in range(20 - math.floor(percentage / 5))
+                for _ in range(20 - math.floor(percentage / 5))
             ),
             round(percentage, 2),
         )
+
         tmp = (
             f"{progress_str}\n"
             f"`{humanbytes(current)} of {humanbytes(total)}"
