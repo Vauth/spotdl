@@ -20,13 +20,20 @@ async def reply_id(event):
 
 
 async def get_user_from_event(
-    event, catevent=None, secondgroup=None, nogroup=False, noedits=False
+    event,
+    catevent=None,
+    secondgroup=None,
+    thirdgroup=None,
+    nogroup=False,
+    noedits=False,
 ):  # sourcery no-metrics
     if catevent is None:
         catevent = event
     if nogroup is False:
         if secondgroup:
             args = event.pattern_match.group(2).split(" ", 1)
+        elif thirdgroup:
+            args = event.pattern_match.group(3).split(" ", 1)
         else:
             args = event.pattern_match.group(1).split(" ", 1)
     extra = None
@@ -46,8 +53,8 @@ async def get_user_from_event(
             if isinstance(user, int) or user.startswith("@"):
                 user_obj = await event.client.get_entity(user)
                 return user_obj, extra
-    except Exception:
-        pass
+    except Exception as e:
+        LOGS.error(str(e))
     try:
         if nogroup is False:
             if secondgroup:
@@ -65,7 +72,7 @@ async def get_user_from_event(
                 return None, None
             user_obj = await event.client.get_entity(previous_message.sender_id)
             return user_obj, extra
-        elif not args:
+        if not args:
             if not noedits:
                 await edit_delete(
                     catevent, "`Pass the user's username, id or reply!`", 5
