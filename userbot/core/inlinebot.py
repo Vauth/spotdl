@@ -381,7 +381,7 @@ async def inline_handler(event):  # sourcery no-metrics
                 link_preview=False,
             )
             await event.answer([result] if result else None)
-        elif str_y[0].lower() == "ytdl" and len(str_y) == 2:
+        elif str_y[0].lower() == "-ytdl" and len(str_y) == 2:
             link = get_yt_video_id(str_y[1].strip())
             found_ = True
             if link is None:
