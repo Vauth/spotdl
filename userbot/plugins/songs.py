@@ -161,7 +161,7 @@ async def _(event):
         return await catevent.edit(
             f"Sorry!. I can't find any related video/audio for `{query}`"
         )
-    await catevent.edit("`Uploading`")
+    await catevent.edit("`Uploading ...`")
     catthumb = Path(f"{catname}.jpg")
     if not os.path.exists(catthumb):
         catthumb = Path(f"{catname}.webp")
