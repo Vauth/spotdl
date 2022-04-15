@@ -27,9 +27,9 @@ LOGS = logging.getLogger(__name__)
 # =========================================================== #
 #                           STRINGS                           #
 # =========================================================== #
-SONG_SEARCH_STRING = "<code>wi8..! I am finding your song ...</code>"
-SONG_NOT_FOUND = "<code>Sorry !I am unable to find any song like that</code>"
-SONG_SENDING_STRING = "<code>yeah..! I found something wi8 ...</code>"
+SONG_SEARCH_STRING = "<code>Downloading ...</code>"
+SONG_NOT_FOUND = "<code>No result found</code>"
+SONG_SENDING_STRING = "<code>Uploading ...</code>"
 # =========================================================== #
 #                                                             #
 # =========================================================== #
@@ -58,8 +58,7 @@ async def _(event):
         query = reply.message
     else:
         return await edit_or_reply(event, "`What I am Supposed to find `")
-    cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catevent = await edit_or_reply(event, "`wi8..! I am finding your song....`")
+    catevent = await edit_or_reply(event, "`Downloading ...`")
     video_link = await yt_search(str(query))
     if not url(video_link):
         return await catevent.edit(
@@ -89,7 +88,7 @@ async def _(event):
         return await catevent.edit(
             f"Sorry!. I can't find any related video/audio for `{query}`"
         )
-    await catevent.edit("`yeah..! i found something wi8..🥰`")
+    await catevent.edit("`Uploading ...`")
     catthumb = Path(f"{catname}.jpg")
     if not os.path.exists(catthumb):
         catthumb = Path(f"{catname}.webp")
@@ -132,7 +131,7 @@ async def _(event):
     else:
         return await edit_or_reply(event, "`What I am Supposed to find`")
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catevent = await edit_or_reply(event, "`wi8..! I am finding your song....`")
+    catevent = await edit_or_reply(event, "`Downloading ...`")
     video_link = await yt_search(str(query))
     if not url(video_link):
         return await catevent.edit(
@@ -162,7 +161,7 @@ async def _(event):
         return await catevent.edit(
             f"Sorry!. I can't find any related video/audio for `{query}`"
         )
-    await catevent.edit("`yeah..! i found something wi8..🥰`")
+    await catevent.edit("`Uploading`")
     catthumb = Path(f"{catname}.jpg")
     if not os.path.exists(catthumb):
         catthumb = Path(f"{catname}.webp")
