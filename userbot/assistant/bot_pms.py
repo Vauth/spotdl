@@ -207,12 +207,7 @@ async def bot_pms_edit(event):  # sourcery no-metrics
             try:
                 add_user_to_db(msg.id, get_display_name(chat), chat.id, event.id, 0, 0)
             except Exception as e:
-                LOGS.error(str(e))
-                if BOTLOG:
-                    await event.client.send_message(
-                        BOTLOG_CHATID,
-                        f"**Error**\nWhile storing messages details in database\n`{str(e)}`",
-                    )
+                pass
     else:
         reply_to = await reply_id(event)
         if reply_to is not None:
