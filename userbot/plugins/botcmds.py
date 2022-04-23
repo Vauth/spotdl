@@ -14,7 +14,8 @@ users.append(Config.OWNER_ID)
 )
 async def ping(event):
     start = datetime.now()
-    catevent = await event.reply("𝗣𝗼𝗻𝗴")
+    b=Button.inline('Stats', data='stats')
+    catevent = await tgbot.send_message(event.chat_id, "𝗣𝗼𝗻𝗴", buttons=b, reply_to=event.id)
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     await catevent.edit(f"𝗣𝗼𝗻𝗴\n`{ms}` 𝗆𝗌")
