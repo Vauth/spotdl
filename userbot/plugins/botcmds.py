@@ -5,8 +5,7 @@ from userbot import catub
 from ..Config import Config
 
 botusername = Config.TG_BOT_USERNAME
-users = list(Config.SUDO_USERS)
-users.append(Config.OWNER_ID)
+users = Config.OWNER_ID
 
 @catub.bot_cmd(
     pattern=f"^/ping({botusername})?([\s]+)?$",
