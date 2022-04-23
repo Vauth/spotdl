@@ -9,10 +9,9 @@ from ..sql_helper.globals import gvarstatus
 
 def check_owner(func):
     async def wrapper(c_q: CallbackQuery):
-        if c_q.query.user_id and (
-            c_q.query.user_id == Config.OWNER_ID
-            or c_q.query.user_id in Config.SUDO_USERS
-        ):
+        auser = list(Config.SUDO_USERS)
+        auser.append(Config.OWNER_ID)
+        if c_q.query.user_id and (c_q.query.user_id in auser):
             try:
                 await func(c_q)
             except FloodWaitError as e:
@@ -22,7 +21,7 @@ def check_owner(func):
         else:
             HELP_TEXT = (
                 gvarstatus("HELP_TEXT")
-                or "Only My Master can Access This !!\n\nDeploy your own Catuserbot."
+                or "What could have been."
             )
             await c_q.answer(
                 HELP_TEXT,
