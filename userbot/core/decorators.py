@@ -11,7 +11,7 @@ def check_owner(func):
     async def wrapper(c_q: CallbackQuery):
         auser = list(Config.SUDO_USERS)
         auser.append(Config.OWNER_ID)
-        if c_q.query.user_id and (c_q.query.user_id in auser):
+        if (c_q.query.user_id and c_q.query.user_id in auser):
             try:
                 await func(c_q)
             except FloodWaitError as e:
