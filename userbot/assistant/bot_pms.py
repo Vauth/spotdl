@@ -137,6 +137,8 @@ async def bot_start(event):
 
 @catub.bot_cmd(incoming=True, func=lambda e: e.is_private)
 async def bot_pms(event):  # sourcery no-metrics
+    if event.text.startswith("/"):
+        return
     chat = await event.get_chat()
     if check_is_black_list(chat.id):
         return
@@ -145,12 +147,7 @@ async def bot_pms(event):  # sourcery no-metrics
         try:
             add_user_to_db(msg.id, get_display_name(chat), chat.id, event.id, 0, 0)
         except Exception as e:
-            LOGS.error(str(e))
-            if BOTLOG:
-                await event.client.send_message(
-                    BOTLOG_CHATID,
-                    f"**Error**\nWhile storing messages details in database\n`{str(e)}`",
-                )
+            pass
     else:
         if event.text.startswith("/"):
             return
@@ -184,13 +181,7 @@ async def bot_pms(event):  # sourcery no-metrics
                     reply_to, user_name, user_id, reply_msg, event.id, msg.id
                 )
             except Exception as e:
-                LOGS.error(str(e))
-                if BOTLOG:
-                    await event.client.send_message(
-                        BOTLOG_CHATID,
-                        f"**Error**\nWhile storing messages details in database\n`{str(e)}`",
-                    )
-
+                pass
 
 @catub.bot_cmd(edited=True)
 async def bot_pms_edit(event):  # sourcery no-metrics
