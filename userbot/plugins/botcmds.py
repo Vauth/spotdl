@@ -10,7 +10,7 @@ users.append(Config.OWNER_ID)
 
 @catub.bot_cmd(
     pattern=f"^/ping({botusername})?([\s]+)?$",
-    from_users=Config.OWNER_ID,
+    from_users=users,
 )
 async def ping(event):
     start = datetime.now()
