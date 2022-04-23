@@ -18,6 +18,8 @@ def check_owner(func):
                 await asyncio.sleep(e.seconds + 5)
             except MessageNotModifiedError:
                 pass
+            except Exception:
+                await c_q.answer("You can't use it here.", alert=True)
         else:
             HELP_TEXT = (
                 gvarstatus("HELP_TEXT")
