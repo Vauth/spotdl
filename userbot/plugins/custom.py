@@ -32,6 +32,7 @@ vlist = [
     "ENABLE_HAREM",
     "INLINE_BOT",
     "VS_PACK",
+    "PUBLIC_CHANNEL",
 ]
 
 oldvars = {
