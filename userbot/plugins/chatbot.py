@@ -1,5 +1,5 @@
 import random
-
+import requests
 from telethon.utils import get_display_name
 
 from userbot import catub
@@ -204,18 +204,15 @@ async def list_chatbot(event):  # sourcery no-metrics
 @catub.cat_cmd(incoming=True, edited=False)
 async def ai_reply(event):
     if is_added(event.chat_id, event.sender_id) and (event.message.text):
-        AI_LANG = gvarstatus("AI_LANG") or "en"
-        master_name = get_display_name(await event.client.get_me())
+        # AI_LANG = gvarstatus("AI_LANG") or "en"
+        # master_name = get_display_name(await event.client.get_me())
         try:
-            response = await rs_client.get_ai_response(
-                message=event.message.text,
-                server="primary",
-                master="CatUserbot",
-                bot=master_name,
-                uid=event.client.uid,
-                language=AI_LANG,
-            )
-            await event.reply(response.message)
+            query = event.message.text
+            url = f"https://arq.hamker.in/luna?query={query}&id=0"
+            load = {"X-API-KEY": "MEJDEO-TCFMCA-SDUDMK-DSMGAU-ARQ"}
+            r = requests.get(url, headers=load).json()
+            response = r["result"]
+            await event.reply(response)
         except Exception as e:
             LOGS.error(str(e))
             await event.reply(random.choice(tired_response))
