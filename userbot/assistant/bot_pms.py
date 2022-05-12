@@ -145,7 +145,12 @@ async def bot_pms(event):  # sourcery no-metrics
         try:
             add_user_to_db(msg.id, get_display_name(chat), chat.id, event.id, 0, 0)
         except Exception as e:
-            pass
+            LOGS.error(str(e))
+            if BOTLOG:
+                await event.client.send_message(
+                    BOTLOG_CHATID,
+                    f"**Error:**\n`{str(e)}`",
+                )
     else:
         if event.text.startswith("/"):
             return
@@ -173,13 +178,18 @@ async def bot_pms(event):  # sourcery no-metrics
             except UserIsBlockedError:
                 return await event.reply("𝗧𝗵𝗶𝘀 𝗯𝗼𝘁 𝘄𝗮𝘀 𝗯𝗹𝗼𝗰𝗸𝗲𝗱 𝗯𝘆 𝘁𝗵𝗲 𝘂𝘀𝗲𝗿. ❌")
             except Exception as e:
-                return await event.reply(f"**Error:**\n`{str(e)}`")
+                return await event.reply(f"**Error:**\n`{e}`")
             try:
                 add_user_to_db(
                     reply_to, user_name, user_id, reply_msg, event.id, msg.id
                 )
             except Exception as e:
-                pass
+                LOGS.error(str(e))
+                if BOTLOG:
+                    await event.client.send_message(
+                        BOTLOG_CHATID,
+                        f"**Error:**\n`{str(e)}`",
+                    )
 
 @catub.bot_cmd(edited=True)
 async def bot_pms_edit(event):  # sourcery no-metrics
