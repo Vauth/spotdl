@@ -6,7 +6,8 @@ RUN git clone https://github.com/marshallcares/spotdl.git /root/userbot
 WORKDIR /root/userbot
 
 # Install requirements
-RUN pip install -r requirements.txt
+RUN python3 -m pip install --upgrade pip wheel && \
+    python3 -m pip install -r requirements.txt
 
 ENV PATH="/home/userbot/bin:$PATH"
 
