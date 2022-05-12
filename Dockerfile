@@ -6,7 +6,7 @@ RUN git clone https://github.com/marshallcares/spotdl.git /root/userbot
 WORKDIR /root/userbot
 
 # Install requirements
-RUN sudo pip install -r requirements.txt
+RUN pip install https://github.com/New-dev0/Telethon/archive/Artifact.zip
 
 ENV PATH="/home/userbot/bin:$PATH"
 
