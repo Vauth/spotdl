@@ -209,10 +209,10 @@ async def ai_reply(event):
         try:
             query = event.message.text
             url = f"https://arq.hamker.in/luna?query={query}&id=0"
-            load = {"X-API-KEY": "MEJDEO-TCFMCA-SDUDMK-DSMGAU-ARQ"}
+            load = {"X-API-KEY": "NRMSEU-ZTFRCD-PQGSFI-QTXGNU-ARQ"}
             r = requests.get(url, headers=load).json()
             response = r["result"]
             await event.reply(response)
         except Exception as e:
             LOGS.error(str(e))
-            await event.reply(random.choice(tired_response))
+            return await event.reply(random.choice(tired_response))
