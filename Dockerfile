@@ -6,7 +6,7 @@ RUN git clone https://github.com/marshallcares/spotdl.git /root/userbot
 WORKDIR /root/userbot
 
 # Install requirements
-RUN pip install -r --no-cache-dir requirements.txt
+RUN wget https://raw.githubusercontent.com/TgCatUB/catuserbot/master/requirements.txt && pip3 install -r --no-cache-dir requirements.txt
 
 ENV PATH="/home/userbot/bin:$PATH"
 
