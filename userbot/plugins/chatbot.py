@@ -208,11 +208,9 @@ async def ai_reply(event):
         # master_name = get_display_name(await event.client.get_me())
         try:
             query = event.message.text
-            url = f"https://arq.hamker.in/luna?query={query}&id=0"
-            load = {"X-API-KEY": "NRMSEU-ZTFRCD-PQGSFI-QTXGNU-ARQ"}
-            r = requests.get(url, headers=load).json()
-            response = r["result"]
+            url = f"https://kukiapi.xyz/api/apikey=ULTROIDUSERBOT/Ultroid/odi/message={query}"
+            r = requests.get(url).json()
+            response = r["reply"]
             await event.reply(response)
         except Exception as e:
-            LOGS.error(str(e))
-            return await event.reply(random.choice(tired_response))
+            return LOGS.error(str(e))
