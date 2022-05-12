@@ -85,5 +85,5 @@ youtube_search
 yt_dlp
 
 https://github.com/New-dev0/Telethon/archive/Artifact.zip
-gir+https://github.com/sandy1709/py-googletrans
+git+https://github.com/sandy1709/py-googletrans
 https://github.com/marshallcares/youtube-search-python/archive/main.zip
