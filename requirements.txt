@@ -68,6 +68,13 @@ vcsi
 wand
 wget
 
+fake_useragent
+googletrans==4.0.0-rc1
+markdown-it-py
+TgCrypto
+tswift
+PyDictionary
+
 hentai
 natsort
 instaloader
@@ -78,5 +85,5 @@ youtube_search
 yt_dlp
 
 https://github.com/New-dev0/Telethon/archive/Artifact.zip
-https://github.com/sandy1709/py-googletrans/archive/master.zip
+gir+https://github.com/sandy1709/py-googletrans
 https://github.com/marshallcares/youtube-search-python/archive/main.zip
