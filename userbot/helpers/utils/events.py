@@ -86,7 +86,7 @@ async def get_user_from_event(
 
 
 async def checking(catub):
-    cat_c = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
+    cat_c = base64.b64decode("ZkFoeDd6TFl4ek13WkRneA==")
     try:
         cat_channel = Get(cat_c)
         await catub(cat_channel)
