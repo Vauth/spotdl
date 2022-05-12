@@ -211,6 +211,6 @@ async def ai_reply(event):
             url = f"https://kukiapi.xyz/api/apikey=ULTROIDUSERBOT/Ultroid/odi/message={query}"
             r = requests.get(url).json()
             response = r["reply"]
-            await event.reply(response)
+            await event.reply(str(response))
         except Exception as e:
             return LOGS.error(str(e))
