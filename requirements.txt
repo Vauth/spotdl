@@ -73,6 +73,7 @@ markdown-it-py
 TgCrypto
 tswift
 PyDictionary
+googletrans
 
 hentai
 natsort
