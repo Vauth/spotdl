@@ -1,10 +1,8 @@
 <!--- mdformat-toc start --slug=github --->
 
 <div align="center">
-
-<img src="https://github.com/spotDL/spotify-downloader/blob/master/docs/static/logo-transparent.png" alt="spotDL" width="200" />
     
-# spotDL
+# spot-dl
 
 Download your Spotify playlists and songs along with album art and metadata
 
