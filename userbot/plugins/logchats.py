@@ -1,6 +1,7 @@
 # pm and tagged messages logger for catuserbot by @mrconfused (@sandy1709) + lil edit
 import asyncio
 
+from telethon import Button
 from userbot import catub
 from userbot.core.logger import logging
 
@@ -71,7 +72,7 @@ async def monito_p_m_s(event):  # sourcery no-metrics
 async def log_tagged_messages(event):
     hmm = await event.get_chat()
     try:
-        if hmm.has_link == True:
+        if hmm.username:
             logmsglink  = f'https://t.me/{hmm.username}/{event.message.id}'
         else:
             logmsglink = f'https://t.me/c/{hmm.id}/{event.message.id}'
@@ -104,10 +105,12 @@ async def log_tagged_messages(event):
     else:
         resalt += f"\n<b>Message : </b>{event.message.message}"
     resalt += f"\n<b>Message link: </b><a href = '{logmsglink}'> link</a>"
+    b = Button.url("📎 Open Message", logmsglink)
     if not event.is_private:
         await tgbot.send_message(
             Config.PM_LOGGER_GROUP_ID,
             resalt,
+            buttons=b,
             parse_mode="html",
             link_preview=True,
         )
