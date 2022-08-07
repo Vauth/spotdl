@@ -83,6 +83,7 @@ spotdl
 opencv-python-headless
 youtube_search
 yt_dlp
+unicodex
 
 https://github.com/New-dev0/Telethon/archive/Artifact.zip
 https://github.com/marshallcares/youtube-search-python/archive/main.zip
