@@ -66,7 +66,7 @@ async def fetch_info(chat, event):  # sourcery no-metrics
     if getchat.full_chat.available_reactions:
         grp_emoji = "".join(getchat.full_chat.available_reactions)
     else:
-        grp_emoji = "<code>None</code>"
+        grp_emoji = "None"
     try:
         msg_info = await event.client(
             GetHistoryRequest(
