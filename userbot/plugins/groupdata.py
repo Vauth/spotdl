@@ -63,7 +63,10 @@ async def fetch_info(chat, event):  # sourcery no-metrics
     chat_title = chat_obj_info.title
     warn_emoji = emojize(":warning:")
     getchat = await event.client(GetFullChannelRequest(channel=chat.full_chat.id))
-    grp_emoji = "".join(getchat.full_chat.available_reactions)
+    if getchat.full_chat.available_reactions:
+        grp_emoji = "".join(getchat.full_chat.available_reactions)
+    else:
+        grp_emoji = "<code>None</code>"
     try:
         msg_info = await event.client(
             GetHistoryRequest(
