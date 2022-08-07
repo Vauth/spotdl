@@ -233,7 +233,9 @@ def reddit_thumb_link(preview, thumb=None):
         thumb = preview.pop()
     return thumb.replace("\u0026", "&")
 
-
+# split string into fixed length substrings
+def chunkstring(string, length):
+    return (string[0 + i : length + i] for i in range(0, len(string), length))
 # --------------------------------------------------------------------------------------------------------------------#
 
 
