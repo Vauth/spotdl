@@ -106,7 +106,7 @@ async def sticklet(event):
     image = Image.new("RGBA", (512, 512), (255, 255, 255, 0))
     draw = ImageDraw.Draw(image)
     fontsize = 230
-    FONT_FILE = await get_font_file(event.client, "@catfonts", font_file_name)
+    FONT_FILE = await get_font_file(event.client, "@fontsbin", font_file_name)
     font = ImageFont.truetype(FONT_FILE, size=fontsize)
     while draw.multiline_textsize(sticktext, font=font) > (512, 512):
         fontsize -= 3
@@ -116,14 +116,14 @@ async def sticklet(event):
         ((512 - width) / 2, (512 - height) / 2), sticktext, font=font, fill=(R, G, B)
     )
     image_stream = io.BytesIO()
-    image_stream.name = "dazaisunbot.webp"
+    image_stream.name = "sticker.webp"
     image.save(image_stream, "WebP")
     image_stream.seek(0)
     # finally, reply the sticker
     await event.client.send_file(
         event.chat_id,
         image_stream,
-        caption=" ⁭⁫⁪⁫⁬⁭⁫⁪⁫",
+        caption="Sticker⁭⁫⁪⁫⁬⁭⁫⁪⁫",
         reply_to=reply_to_id,
     )
     # cleanup
